@@ -59,6 +59,7 @@ If you experience any errors while trying to install kickstart, run `:checkhealt
 
 I hope you enjoy your Neovim journey,
 - TJ
+--]]
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
