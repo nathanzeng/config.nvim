@@ -6,4 +6,4 @@ Kind of want a file tree, but not sure
 
 Get started working on something
 
-iTerm font size 21
+iTerm font size 20 on my big rphq monitor

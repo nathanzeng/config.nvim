@@ -54,6 +54,8 @@ return {
         end, { desc = 'git [D]iff against last commit' })
         -- Toggles
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
+        -- TODO: I want it to toggle whole file blame instead, have to figure out how to delete the buffer
+        -- map('n', '<leader>tb', gitsigns.blame, { desc = '[T]oggle git show [b]lame line' })
         map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
       end,
     },
