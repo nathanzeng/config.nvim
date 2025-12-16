@@ -49,20 +49,27 @@ require('lazy').setup({
   },
 
   -- Git diff view
-  { 'sindrets/diffview.nvim' },
-
-  -- File tree
   {
-    'nvim-tree/nvim-tree.lua',
-    version = '*',
-    lazy = false,
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
+    'sindrets/diffview.nvim',
     config = function()
-      require('nvim-tree').setup {}
+      require('diffview').setup {
+        vim.keymap.set('n', '<leader>git', '<cmd>DiffviewOpen<CR>', { desc = '[git] Diff' }),
+      }
     end,
   },
+
+  -- File tree
+  -- {
+  --   'nvim-tree/nvim-tree.lua',
+  --   version = '*',
+  --   lazy = false,
+  --   dependencies = {
+  --     'nvim-tree/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require('nvim-tree').setup {}
+  --   end,
+  -- },
 
   -- Bufferline
   {
@@ -118,8 +125,6 @@ require('lazy').setup({
   -- you do for a plugin at the top level, you can do for a dependency.
   --
   -- Use the `dependencies` key to specify the dependencies of a particular plugin
-
-  -- TODO: there's some native sorter in the github they suggest
 
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
@@ -764,7 +769,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

@@ -5,6 +5,7 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- TODO: not sure if I love this, might want to use q for quit
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -31,6 +32,14 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- TODO: I think I want a keybind for :xa, save all and close
+
+-- TODO: Might want to enable this for the insert modes too
+
+-- Page down and up for buffer next and previous
+vim.keymap.set('n', '<PageDown>', '<cmd>bnext<CR>')
+vim.keymap.set('n', '<PageUp>', '<cmd>bprev<CR>')
+-- Leader w for closing buffer
+vim.keymap.set('n', '<leader>w', '<cmd>bd<CR><cmd>bprev<CR>', { desc = 'Close buffer' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
