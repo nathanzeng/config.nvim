@@ -77,12 +77,13 @@ require('lazy').setup({
         keys = {},
       },
 
-      -- TODO: h isn't enabled by default, submit issue/PR?
+      -- TODO: Git [H]unk from gitsigns isn't enabled by default, submit issue/PR?
       -- Document existing key chains
       spec = {
         { '<leader>s', group = '[S]earch' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>t', group = 'Tree' },
+        { '<leader>g', group = 'Git' },
+        { '<leader>l', group = 'LSP' },
       },
     },
   },
@@ -355,9 +356,9 @@ require('lazy').setup({
           --
           -- This may be unwanted, since they displace some of your code
           if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-            map('<leader>th', function()
+            map('<leader>lh', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, '[T]oggle Inlay [H]ints')
+            end, 'Toggle inlay [h]ints')
           end
         end,
       })
@@ -613,14 +614,6 @@ require('lazy').setup({
       -- Shows a signature help window while you type arguments for a function
       signature = { enabled = true },
     },
-  },
-
-  -- Highlight todo, notes, etc in comments
-  {
-    'folke/todo-comments.nvim',
-    event = 'VimEnter',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = false, keywords = { TODO = { color = 'warning' } } },
   },
 
   { -- Highlight, edit, and navigate code
