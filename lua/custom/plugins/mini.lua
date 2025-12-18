@@ -31,6 +31,10 @@ return { -- Collection of various small independent plugins/modules
       return '%2l:%-2v'
     end
 
+    -- Command line hints
     require('mini.cmdline').setup()
+
+    -- Better buffer delete
+    require('mini.bufremove').setup()
   end,
 }

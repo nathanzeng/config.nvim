@@ -39,7 +39,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Page down and up for buffer next and previous
 vim.keymap.set('n', '<PageDown>', '<cmd>bnext<CR>')
 vim.keymap.set('n', '<PageUp>', '<cmd>bprev<CR>')
--- TODO:gonna need mini buf remove once I start using splits
 vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR><cmd>bprev<CR>', { desc = 'Close buffer' })
 
 -- [[ Basic Autocommands ]]
