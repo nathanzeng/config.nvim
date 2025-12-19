@@ -1,7 +1,12 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Save buffer
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save' })
+
+-- Enter and Shift+Enter to get new line below and above without entering insert mode
+vim.keymap.set('n', '<CR>', 'o<Esc>')
+vim.keymap.set('n', '<S-CR>', 'O<Esc>')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -11,12 +16,16 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- NOTE: This was originally double escape in kickstart, look for conflicts
+-- NOTE: This was originally double escape in kickstart, but that doesn't work
+-- This does have some conflicts like if you want to use vim in the neovim terminal
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Left and right arrow in normal mode scroll the page
 vim.keymap.set('n', '<left>', '<C-y>')
 vim.keymap.set('n', '<right>', '<C-e>')
+-- Up and down arrow jump by half page
+vim.keymap.set('n', '<down>', '<C-d>')
+vim.keymap.set('n', '<up>', '<C-u>')
 
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
