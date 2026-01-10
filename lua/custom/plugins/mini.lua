@@ -1,4 +1,5 @@
-return { -- Collection of various small independent plugins/modules
+-- Collection of various small independent plugins/modules
+return {
   'echasnovski/mini.nvim',
   config = function()
     -- Better Around/Inside textobjects
@@ -31,10 +32,18 @@ return { -- Collection of various small independent plugins/modules
       return '%2l:%-2v'
     end
 
+    -- TODO: i don't think i actually want buffer tabs
+    -- Buffer tabs
+    require('mini.tabline').setup()
+
     -- Command line hints
     require('mini.cmdline').setup()
 
     -- Better buffer delete
     require('mini.bufremove').setup()
+
+    -- Icons and mock the nvim-tree one
+    require('mini.icons').setup()
+    MiniIcons.mock_nvim_web_devicons()
   end,
 }
