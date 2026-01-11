@@ -1,7 +1,5 @@
 The linter still isn't 100% there, the custom no string thing isn't there yet
 
-Track the wezterm config file with git
-
 Figure out a splitting workflow
 
 modularize lazy-plugins
