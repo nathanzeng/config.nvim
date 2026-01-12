@@ -1,3 +1,7 @@
+TJ's split terminal thing
+
+Something other than the iterm theme in wezterm
+
 The linter still isn't 100% there, the custom no string thing isn't there yet
 
 Figure out a splitting workflow
