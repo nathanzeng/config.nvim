@@ -12,9 +12,11 @@ vim.keymap.set('n', '<S-CR>', 'O<Esc>')
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- TODO: not sure if I love this, might want to use q for quit
+-- NOTE: AI said there might be some gotcha with unnamed buffers that have not been saved to disk
+vim.keymap.set('n', '<leader>q', '<cmd>wall<CR><cmd>qall!<CR>', { desc = '[q]uit' })
+
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = '[e]rrors - open diagnostic quickfix list' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
