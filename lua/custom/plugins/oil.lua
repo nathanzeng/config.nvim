@@ -1,3 +1,4 @@
+-- NOTE: float seems like it could be cool
 return {
   'stevearc/oil.nvim',
   dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
@@ -5,6 +6,10 @@ return {
     require('oil').setup {
       view_options = {
         show_hidden = true,
+      },
+      keymaps = {
+        -- Will collide with my floaterminal otherwise
+        ['<C-t>'] = false,
       },
     }
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
