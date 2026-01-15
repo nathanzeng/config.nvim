@@ -294,6 +294,8 @@ require('lazy').setup({
           },
         },
         vue_ls = {},
+        -- TODO: does not work in redpoint yet
+        graphql = {},
 
         lua_ls = {
           -- cmd = { ... },

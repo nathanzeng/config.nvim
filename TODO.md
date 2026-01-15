@@ -1,4 +1,6 @@
-TJ's floating or split terminal thing
+Graphql LSP not working
+https://www.npmjs.com/package/graphql-language-service-server#user-content-graphql-configuration-file
+:LspLog gives some useful information
 
 The linter still isn't 100% there, the custom no string thing isn't there yet
 
@@ -7,4 +9,9 @@ modularize lazy-plugins
 I remember seeing a quote/paren/bracket autocomplete that I wanted.
 It's called mini.pairs
 
-Git diff workflow might be improvable?
+Telescope search by directory
+Seems to be an example in :help oil-actions
+
+Can optimize oil a bit more, commands for opening oil from the home directory or closing oil seem useful
+
+Optimize git diff workflow
