@@ -9,12 +9,12 @@ local function create_floating_window(opts)
   local total_width = ui.width
   local total_height = ui.height
 
-  -- Calculate width and height (default 80%)
-  local width = opts.width or math.floor(total_width * 0.8)
-  local height = opts.height or math.floor(total_height * 0.8)
+  -- Calculate width and height (default 60%)
+  local width = opts.width or math.floor(total_width * 0.6)
+  local height = opts.height or math.floor(total_height * 0.6)
 
   -- Calculate top-left corner to center the window
-  local row = math.floor((total_height - height) / 2)
+  local row = math.floor((total_height - height) * 0.3)
   local col = math.floor((total_width - width) / 2)
 
   local buf = nil
@@ -47,6 +47,7 @@ local toggleTerminal = function()
     if vim.bo[state.floating.buf].buftype ~= 'terminal' then
       vim.cmd.terminal()
     end
+    vim.cmd 'normal i'
   else
     vim.api.nvim_win_hide(state.floating.win)
   end
