@@ -24,11 +24,7 @@ local custom_gruvbox = {
   insert = normalTheme,
   visual = normalTheme,
   replace = normalTheme,
-  command = {
-    a = { bg = colors.green, fg = colors.black, gui = 'bold' },
-    b = { bg = colors.lightgray, fg = colors.white },
-    c = { bg = colors.inactivegray, fg = colors.black },
-  },
+  command = normalTheme,
   inactive = {
     a = { bg = colors.darkgray, fg = colors.gray, gui = 'bold' },
     b = { bg = colors.darkgray, fg = colors.gray },
@@ -36,18 +32,31 @@ local custom_gruvbox = {
   },
 }
 
-local function custom_filename()
-  return '%F%m%r'
-end
-
--- TODO: i like the idea of showing the full path to the file but highlighting the name of the file
 return {
   'nvim-lualine/lualine.nvim',
   config = function()
     require('lualine').setup {
       options = { theme = custom_gruvbox },
       sections = {
-        lualine_c = { custom_filename },
+        lualine_c = {
+          {
+            'filename',
+            newfile_status = true, -- Display new file status (new file means no write after created)
+            -- 0: Just the filename
+            -- 1: Relative path
+            -- 2: Absolute path
+            -- 3: Absolute path, with tilde as the home directory
+            -- 4: Filename and parent dir, with tilde as the home directory
+            path = 3,
+            color = function()
+              if vim.bo.modified then
+                return { bg = colors.green, fg = colors.black }
+              else
+                return { bg = colors.darkgray, fg = colors.gray }
+              end
+            end,
+          },
+        },
         lualine_x = { 'filetype' },
       },
     }
