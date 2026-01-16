@@ -38,6 +38,10 @@ return {
     require('lualine').setup {
       options = { theme = custom_gruvbox },
       sections = {
+        lualine_a = {
+          { 'filetype', separator = '', icon_only = true, colored = false, padding = { left = 1, right = 0 } },
+          { 'filename', path = 0, padding = { left = 0, right = 1 } },
+        },
         lualine_c = {
           {
             'filename',
@@ -50,14 +54,16 @@ return {
             path = 3,
             color = function()
               if vim.bo.modified then
-                return { bg = colors.green, fg = colors.black }
+                return { bg = colors.lightgray, fg = colors.white }
               else
                 return { bg = colors.darkgray, fg = colors.gray }
               end
             end,
           },
         },
-        lualine_x = { 'filetype' },
+        lualine_x = { 'progress' },
+        lualine_y = { 'location' },
+        lualine_z = { 'mode' },
       },
     }
   end,
