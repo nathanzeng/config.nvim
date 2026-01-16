@@ -45,7 +45,7 @@ require('lazy').setup({
       -- TODO: Git [H]unk from gitsigns isn't enabled by default, submit issue/PR?
       -- Document existing key chains
       spec = {
-        { '<leader>s', group = '[S]earch' },
+        { '<leader>f', group = '[f]ind' },
         { '<leader>g', group = 'Git' },
         { '<leader>l', group = 'LSP' },
       },
