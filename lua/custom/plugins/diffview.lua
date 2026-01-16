@@ -9,6 +9,8 @@ return {
         vim.cmd 'DiffviewClose'
         diffviewIsOpen = false
       else
+        -- Save before entering the diff view just in case
+        vim.cmd 'wa'
         vim.cmd 'DiffviewOpen'
         diffviewIsOpen = true
       end
