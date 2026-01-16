@@ -16,7 +16,7 @@ vim.o.showmode = false
 -- TODO: what is the select mode shown in the status line after autocompleting a function
 -- feel like that should get the orange highlight
 vim.api.nvim_set_hl(0, 'InsertCursor', { bg = '#C68642' })
-vim.opt.guicursor = 'i-r:block-InsertCursor'
+vim.opt.guicursor = 'i-r-t:block-InsertCursor'
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
