@@ -10,13 +10,25 @@ local colors = {
   darkgray     = '#3c3836',
   lightgray    = '#504945',
   inactivegray = '#7c6f64',
-  bForeground = '#c9ba9b',
+  bForeground  = '#c9ba9b',
 }
+
+local function get_colors_respect_modified(modifiedColors, normalColors)
+  if vim.bo.modified then
+    return modifiedColors
+  else
+    return normalColors
+  end
+end
 
 local normalTheme = {
   a = { bg = colors.gray, fg = colors.black, gui = 'bold' },
-  b = { bg = colors.lightgray, fg = colors.bForeground },
-  c = { bg = colors.darkgray, fg = colors.gray },
+  b = function()
+    return get_colors_respect_modified({ bg = colors.lightgray, fg = colors.white }, { bg = colors.lightgray, fg = colors.bForeground })
+  end,
+  c = function()
+    return get_colors_respect_modified({ bg = colors.lightgray, fg = colors.white }, { bg = colors.darkgray, fg = colors.gray })
+  end,
 }
 
 local custom_gruvbox = {
@@ -37,34 +49,30 @@ return {
   config = function()
     require('lualine').setup {
       options = { theme = custom_gruvbox },
-      sections = {
+      winbar = {
         lualine_a = {
           { 'filetype', separator = '', icon_only = true, colored = false, padding = { left = 1, right = 0 } },
-          { 'filename', path = 0, padding = { left = 0, right = 1 } },
+          { 'filename', path = 0, file_status = false, padding = { left = 0, right = 1 } },
         },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = {
           {
             'filename',
             newfile_status = true, -- Display new file status (new file means no write after created)
-            -- 0: Just the filename
-            -- 1: Relative path
-            -- 2: Absolute path
-            -- 3: Absolute path, with tilde as the home directory
-            -- 4: Filename and parent dir, with tilde as the home directory
+            file_status = false,
             path = 3,
-            color = function()
-              if vim.bo.modified then
-                return { bg = colors.lightgray, fg = colors.white }
-              else
-                return { bg = colors.darkgray, fg = colors.gray }
-              end
-            end,
           },
         },
         lualine_x = { 'progress' },
         lualine_y = { 'location' },
         lualine_z = { 'mode' },
       },
+      inactive_winbar = {
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
+      },
+      sections = {},
+      inactive_sections = {},
     }
   end,
 }

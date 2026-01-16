@@ -15,5 +15,3 @@ Seems to be an example in :help oil-actions
 Can optimize oil a bit more, commands for opening oil from the home directory or closing oil seem useful
 
 Optimize git diff workflow, gf needs to close the diff i think
-
-Write my own plugin to have only one buffer tab with devicon at the top of the screen
