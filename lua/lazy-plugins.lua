@@ -18,6 +18,7 @@ require('lazy').setup({
   -- This is often very useful to both group configuration, as well as handle
   -- lazy loading plugins that don't need to be loaded immediately at startup.
   --
+  -- NOTE: moved to a different file now
   -- For example, in the following configuration, we use:
   --  event = 'VimEnter'
   --
@@ -26,31 +27,6 @@ require('lazy').setup({
   --
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
-
-  { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
-    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    opts = {
-      -- delay between pressing a key and opening which-key (milliseconds)
-      -- this setting is independent of vim.o.timeoutlen
-      delay = 0,
-      icons = {
-        -- set icon mappings to true if you have a Nerd Font
-        mappings = vim.g.have_nerd_font,
-        -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
-        -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
-        keys = {},
-      },
-
-      -- TODO: Git [H]unk from gitsigns isn't enabled by default, submit issue/PR?
-      -- Document existing key chains
-      spec = {
-        { '<leader>f', group = '[f]ind' },
-        { '<leader>g', group = 'Git' },
-        { '<leader>l', group = 'LSP' },
-      },
-    },
-  },
 
   -- LSP Plugins
   {
@@ -65,8 +41,9 @@ require('lazy').setup({
       },
     },
   },
+
+  -- Main LSP Configuration
   {
-    -- Main LSP Configuration
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
@@ -376,10 +353,6 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
-  -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
-  -- init.lua. If you want these files, they are in the repository, so you can just download them and
-  -- place them in the correct locations.
-
   -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
   --
   --  Here are some example plugins that I've included in the Kickstart repository.
@@ -387,9 +360,11 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
+  -- require 'kickstart.plugins.which-key',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  -- TODO: is lint what i need for es lint?
+  -- require 'kickstart.plugins.lint',
 
   { import = 'custom.plugins' },
   --
