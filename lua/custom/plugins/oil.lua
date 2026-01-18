@@ -7,7 +7,7 @@ return {
       view_options = {
         show_hidden = true,
       },
-      -- These apply to oil buffers only
+      -- These keymaps apply to oil buffers only
       keymaps = {
         -- Collides with floaterminal
         -- Was originally open file in a new tab
