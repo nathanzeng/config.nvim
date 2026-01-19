@@ -48,7 +48,11 @@ return {
   'nvim-lualine/lualine.nvim',
   config = function()
     require('lualine').setup {
-      options = { theme = custom_gruvbox },
+      options = {
+        theme = custom_gruvbox,
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '│', right = '│' },
+      },
       winbar = {
         lualine_a = {
           { 'filetype', separator = '', icon_only = true, colored = false, padding = { left = 1, right = 0 } },
