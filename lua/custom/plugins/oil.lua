@@ -8,6 +8,7 @@ return {
         show_hidden = true,
       },
       -- These keymaps apply to oil buffers only
+      -- TODO: I believe some of the default keymaps collide with my window navigation keymaps
       keymaps = {
         -- Collides with floaterminal
         -- Was originally open file in a new tab
@@ -35,6 +36,9 @@ return {
           nowait = true,
           desc = 'Find files in the current directory',
         },
+        -- Use control v for opening in a vertical split so we match with telescope
+        ['<C-s>'] = false,
+        ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
       },
     }
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
