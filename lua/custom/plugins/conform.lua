@@ -40,6 +40,7 @@ return {
       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       vue = { 'prettierd', 'prettier', stop_after_first = true },
+      php = { 'prettierd', 'prettier', stop_after_first = true },
     },
   },
 }
