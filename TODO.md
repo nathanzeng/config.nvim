@@ -1,14 +1,17 @@
 Graphql LSP not fully working it is like 10% working on the branch vim-nathan
 https://www.npmjs.com/package/graphql-language-service-server#user-content-graphql-configuration-file
 :LspLog gives some useful information
+https://www.reddit.com/r/neovim/comments/1d0xj9k/help_needed_with_graphql_lsp_and_linter_for/
 
-modularize lazy-plugins
+Duplicate code fragment linting? I tried this jscpd thing but it didn't work with nvim-lint out of the box
+There is also sonar, but be careful not to mess up your existing dev env
 
-I remember seeing a quote/paren/bracket autocomplete that I wanted.
-It's called mini.pairs
+Do I actually want the autopairs plugin? there is also a ts auto tags plugin from the same guy
 
 Optimize git diff workflow, gf needs to close the diff i think
 <leader>d for diff?
+
+I don't like that custom components and div are the same color in vue template
 
 Similar to git diff, closing the git blame is a little bit annoying
 
@@ -16,3 +19,5 @@ Telescope search through git changed files functionality?
 
 I don't love that when commiting from the terminal inside nvim it opens up vim nested
 Either need to do shell configuration, Flatten plugin, Fugitive plugin
+
+modularize lazy-plugins

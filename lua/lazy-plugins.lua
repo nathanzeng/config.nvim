@@ -349,6 +349,8 @@ require('lazy').setup({
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --
+    -- TODO: incremental selection interests me very much for working with html tags
+    --
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
@@ -364,7 +366,6 @@ require('lazy').setup({
   -- require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.which-key',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  -- TODO: is lint what i need for es lint?
   -- require 'kickstart.plugins.lint',
 
   { import = 'custom.plugins' },
