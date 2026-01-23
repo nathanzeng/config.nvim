@@ -6,7 +6,7 @@ https://www.reddit.com/r/neovim/comments/1d0xj9k/help_needed_with_graphql_lsp_an
 Duplicate code fragment linting? I tried this jscpd thing but it didn't work with nvim-lint out of the box
 There is also sonar, but be careful not to mess up your existing dev env
 
-Do I actually want the autopairs plugin? there is also a ts auto tags plugin from the same guy
+there is also a ts auto tags for html plugin from the same guy as the autopairs plugin
 
 Optimize git diff workflow, gf needs to close the diff i think
 <leader>d for diff?
