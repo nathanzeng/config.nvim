@@ -47,7 +47,6 @@ local toggleTerminal = function()
     if vim.bo[state.floating.buf].buftype ~= 'terminal' then
       vim.cmd.terminal()
     end
-    vim.cmd 'normal i'
   else
     vim.api.nvim_win_hide(state.floating.win)
   end
@@ -55,3 +54,14 @@ end
 
 vim.api.nvim_create_user_command('Floaterminal', toggleTerminal, {})
 vim.keymap.set({ 'n', 't' }, '<C-t>', toggleTerminal)
+
+-- Autocommand to enter insert mode in terminals
+vim.api.nvim_create_autocmd({ 'BufEnter', 'TermOpen' }, {
+  desc = 'Automatically enter Insert mode in terminals',
+  pattern = '*',
+  callback = function()
+    if vim.bo.buftype == 'terminal' then
+      vim.cmd 'startinsert'
+    end
+  end,
+})
