@@ -18,5 +18,3 @@ Similar to git diff, closing the git blame is a little bit annoying
 Telescope search through git changed files functionality?
 
 modularize lazy-plugins
-
-There is an issue in unnest describing how to be in insert mode always when entering the terminal. I want it.
