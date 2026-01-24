@@ -17,7 +17,4 @@ Similar to git diff, closing the git blame is a little bit annoying
 
 Telescope search through git changed files functionality?
 
-I don't love that when commiting from the terminal inside nvim it opens up vim nested
-Either need to do shell configuration, Flatten plugin, Fugitive plugin
-
 modularize lazy-plugins
