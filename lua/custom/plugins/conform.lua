@@ -42,6 +42,7 @@ return {
       vue = { 'prettierd', 'prettier', stop_after_first = true },
       php = { 'prettierd', 'prettier', stop_after_first = true },
       graphql = { 'prettierd', 'prettier', stop_after_first = true },
+      html = { 'prettierd', 'prettier', stop_after_first = true },
     },
   },
 }
