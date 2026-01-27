@@ -281,5 +281,9 @@ return {
       ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
       automatic_installation = false,
     }
+
+    vim.keymap.set('n', 'K', function()
+      vim.lsp.buf.hover { border = 'rounded' }
+    end)
   end,
 }
