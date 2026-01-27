@@ -195,7 +195,7 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-    local vue_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
+    local vue_language_server_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
 
     local servers = {
       -- clangd = {},
@@ -206,6 +206,8 @@ return {
       --
       -- NOTE: Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
+      --    vts_ls and the above thing are both options
+      --    I tried vts_ls and it sometimes has duplicate definitons in imports where ts_ls jumps to definition correctly
       --
       -- But for many setups, the LSP (`ts_ls`) will work just fine
       ts_ls = {
@@ -213,7 +215,7 @@ return {
           plugins = {
             {
               name = '@vue/typescript-plugin',
-              location = vue_path,
+              location = vue_language_server_path,
               languages = { 'vue' },
             },
           },
