@@ -10,6 +10,11 @@ return {
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      preview_config = {
+        -- Options passed to nvim_open_win
+        -- Makes it so that I get borders on inline hunk preview and blame
+        border = 'rounded',
+      },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
@@ -22,6 +27,8 @@ return {
         -- Navigation
         map('n', ']c', function()
           if vim.wo.diff then
+            -- bang makes it so that when you are in a diff it executes native ]c
+            -- because ]c is a mapping used by this plugin
             vim.cmd.normal { ']c', bang = true }
           else
             gitsigns.nav_hunk 'next'
@@ -37,7 +44,7 @@ return {
         end, { desc = 'Jump to previous git [c]hange' })
 
         -- Actions
-        -- NOTE: I removed all these actions, because I don't use them...
+        -- NOTE: I removed many actions I don't use
 
         -- visual mode
         -- map('v', '<leader>hs', function()
@@ -54,17 +61,21 @@ return {
         -- map('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'git [u]ndo stage hunk' })
         -- map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
         map('n', '<leader>gp', gitsigns.preview_hunk, { desc = '[p]review hunk' })
-        -- map('n', '<leader>hb', gitsigns.blame_line, { desc = 'git [b]lame line' })
+        map('n', '<leader>gl', function()
+          -- blame_line with the full commit message and hunk changes
+          gitsigns.blame_line { full = true }
+        end, { desc = '[l]ine git blame' })
         -- map('n', '<leader>hd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
         -- map('n', '<leader>hD', function()
         --   gitsigns.diffthis '@'
         -- end, { desc = 'git [D]iff against last commit' })
 
-        map('n', '<leader>gl', gitsigns.toggle_current_line_blame, { desc = 'Toggle git blame [l]ine' })
+        -- I found this line blame to be useless, there are more config options though
+        -- map('n', '<leader>gl', gitsigns.toggle_current_line_blame, { desc = 'Toggle git blame [l]ine' })
         -- TODO: I want it to toggle off blame too, have to figure out how to delete the buffer
-        map('n', '<leader>gb', gitsigns.blame, { desc = '[b]lame' })
+        map('n', '<leader>gb', gitsigns.blame, { desc = '[b]lame file' })
 
-        -- NOTE: not sure what this does
+        -- this was like a worse version of the normal preview
         -- map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
       end,
     },

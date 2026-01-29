@@ -1,3 +1,5 @@
+-- There are some great use cases in this link
+-- https://www.reddit.com/r/neovim/comments/1f7jj15/how_do_you_work_without_diffviewnvim/
 return {
   'sindrets/diffview.nvim',
   config = function()
