@@ -61,6 +61,12 @@ return {
       },
       pickers = {
         find_files = { hidden = true },
+        help_tags = {
+          mappings = {
+            -- Open the help tags vertically
+            i = { ['<CR>'] = 'select_vertical' },
+          },
+        },
       },
       extensions = {
         ['ui-select'] = {
