@@ -20,6 +20,8 @@ return {
       },
     }
 
+    -- TODO: this is a little bit hacky
+    -- e.g. if you toggle close outside of the diffview everything will break
     local diffviewIsOpen = false
     local function toggle_diffview()
       if diffviewIsOpen then
