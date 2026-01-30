@@ -3,6 +3,8 @@
 return {
   'sindrets/diffview.nvim',
   config = function()
+    local diffviewIsOpen = false
+
     require('diffview').setup {
       keymaps = {
         file_panel = {
@@ -13,6 +15,7 @@ return {
               require('diffview.config').actions.goto_file_edit()
               -- Close the last accessed tab (the diffview)
               vim.cmd 'tabclose #'
+              diffviewIsOpen = false
             end,
             { desc = 'Open the file in the previous tabpage' },
           },
@@ -22,7 +25,6 @@ return {
 
     -- TODO: this is a little bit hacky
     -- e.g. if you toggle close outside of the diffview everything will break
-    local diffviewIsOpen = false
     local function toggle_diffview()
       if diffviewIsOpen then
         vim.cmd 'DiffviewClose'

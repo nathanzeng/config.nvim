@@ -13,3 +13,5 @@ Try out typescript tools for lsp?
 Get tailwind lsp
 
 Implement the most recent commits made to kickstart
+
+lazydev not clearing the vim warnings is really annoying me
