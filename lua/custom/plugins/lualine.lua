@@ -24,10 +24,16 @@ end
 local normalTheme = {
   a = { bg = colors.gray, fg = colors.black, gui = 'bold' },
   b = function()
-    return get_colors_respect_modified({ bg = colors.lightgray, fg = colors.white }, { bg = colors.lightgray, fg = colors.bForeground })
+    return get_colors_respect_modified(
+      { bg = colors.lightgray, fg = colors.white },
+      { bg = colors.lightgray, fg = colors.bForeground }
+    )
   end,
   c = function()
-    return get_colors_respect_modified({ bg = colors.lightgray, fg = colors.white }, { bg = colors.darkgray, fg = colors.gray })
+    return get_colors_respect_modified(
+      { bg = colors.lightgray, fg = colors.white },
+      { bg = colors.darkgray, fg = colors.gray }
+    )
   end,
 }
 

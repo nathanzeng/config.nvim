@@ -7,3 +7,9 @@ Duplicate code fragment linting? I tried this jscpd thing but it didn't work wit
 There is also sonar, but be careful not to mess up your existing dev env
 
 Closing the file wide git blame is a little bit annoying
+
+Try out typescript tools for lsp?
+
+Get tailwind lsp
+
+Implement the most recent commits made to kickstart
