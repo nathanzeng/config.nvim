@@ -2,6 +2,7 @@
 -- Diffview looks a little bit odd now however
 return {
   'EdenEast/nightfox.nvim',
+  lazy = false,
   priority = 1000, -- Make sure to load this before all the other start plugins.
   config = function()
     local palettes = {
