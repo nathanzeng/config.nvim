@@ -15,3 +15,6 @@ Get tailwind lsp
 Implement the most recent commits made to kickstart
 
 lazydev not clearing the vim warnings is really annoying me
+
+Diagnostics are a little bit unreadable, there is trouble.nvim by folke
+Could also play with in your existing config making the diagnostic errors not virtual text
