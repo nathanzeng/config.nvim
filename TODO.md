@@ -8,11 +8,11 @@ There is also sonar, but be careful not to mess up your existing dev env
 
 Closing the file wide git blame is a little bit annoying
 
-Try out typescript tools for lsp?
+Try out typescript tools or go for lsp?
 
 Get tailwind lsp
 
 Implement the most recent commits made to kickstart
 
-Diagnostics are a little bit unreadable, there is trouble.nvim by folke
+Diagnostics are a little bit unreadable outside of trouble
 Could also play with in your existing config making the diagnostic errors not virtual text
