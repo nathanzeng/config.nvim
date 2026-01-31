@@ -37,8 +37,11 @@ return {
           desc = 'Find files in the current directory',
         },
         -- Use control v for opening in a vertical split so we match with telescope
-        ['<C-s>'] = false,
         ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
+        ['<C-s>'] = false,
+        -- Disable these two because I use them for window nav
+        ['<C-h>'] = false,
+        ['<C-l>'] = false,
       },
     }
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
