@@ -72,7 +72,7 @@ return {
             'filename',
             newfile_status = true, -- Display new file status (new file means no write after created)
             file_status = false,
-            path = 3,
+            path = 1,
           },
         },
         lualine_x = { 'progress' },
