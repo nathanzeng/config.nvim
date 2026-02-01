@@ -37,7 +37,7 @@ return {
           desc = 'Find files in the current directory',
         },
         -- Use control v for opening in a vertical split so we match with telescope
-        ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
+        ['<C-v>'] = { 'actions.select', opts = { vertical = true, close = true } },
         ['<C-s>'] = false,
         -- Disable these two because I use them for window nav
         ['<C-h>'] = false,
