@@ -1,8 +1,7 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Save buffer
-vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save' })
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[w]rite' })
 
 -- Enter and Shift+Enter to get new line below and above without entering insert mode
 vim.keymap.set('n', '<CR>', 'o<Esc>')
@@ -12,9 +11,7 @@ vim.keymap.set('n', '<S-CR>', 'O<Esc>')
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- NOTE: AI said there might be some gotcha with unnamed buffers that have not been saved to disk
-vim.keymap.set('n', '<leader>q', '<cmd>wall<CR><cmd>qall!<CR>', { desc = '[q]uit' })
-
+vim.keymap.set('n', '<leader>q', '<cmd>xa!<CR>', { desc = '[q]uit' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Up and down arrow in normal mode scroll the page
@@ -38,7 +35,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
-vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR>', { desc = 'Close buffer' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR>', { desc = '[b]uffer [d]elete' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
