@@ -80,7 +80,7 @@ return {
         lualine_z = { 'mode' },
       },
       inactive_winbar = {
-        lualine_c = { 'filename' },
+        lualine_c = { { 'filename', path = 1 } },
         lualine_x = { 'location' },
       },
       sections = {},
