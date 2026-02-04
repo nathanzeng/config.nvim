@@ -3,6 +3,8 @@ https://www.npmjs.com/package/graphql-language-service-server#user-content-graph
 :LspLog gives some useful information
 https://www.reddit.com/r/neovim/comments/1d0xj9k/help_needed_with_graphql_lsp_and_linter_for/
 
+Run eslint fix on save to match php storm? the slot thing in mobile would be a good one to test this out on
+
 Duplicate code fragment linting? I tried this jscpd thing but it didn't work with nvim-lint out of the box
 There is also sonar, but be careful not to mess up your existing dev env
 
