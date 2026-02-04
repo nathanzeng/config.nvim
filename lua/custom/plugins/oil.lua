@@ -42,6 +42,7 @@ return {
         -- Disable these two because I use them for window nav
         ['<C-h>'] = false,
         ['<C-l>'] = false,
+        ['<leader>r'] = { 'actions.refresh' },
       },
     }
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
