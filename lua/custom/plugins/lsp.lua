@@ -214,8 +214,35 @@ return {
         },
       },
       vue_ls = {},
-      -- TODO: does not work in redpoint yet
-      graphql = {},
+      -- TODO: uncommenting the following sometimes gets it to work in vue files in redpoint
+      -- but it is extremely slow and crashes the other lsps too
+      -- there is a thought to try making a graphql.config.yml in the mobile directory
+      graphql = {
+        -- cmd = { 'graphql-lsp', 'server', '--method', 'stream' },
+        --
+        -- -- Attach to Vue + JS/TS
+        -- filetypes = {
+        --   'graphql',
+        --   'javascript',
+        --   'javascriptreact',
+        --   'typescript',
+        --   'typescriptreact',
+        --   'vue',
+        -- },
+        --
+        -- root_markers = { 'graphql.config.yml', '.git' },
+        --
+        -- settings = {
+        --   graphql = {
+        --     -- This is what PhpStorm does automatically
+        --     validate = true,
+        --     schemaValidation = 'error',
+        --
+        --     -- Enable embedded GraphQL
+        --     tagName = 'graphql',
+        --   },
+        -- },
+      },
       eslint = {},
 
       lua_ls = {
