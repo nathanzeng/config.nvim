@@ -97,7 +97,7 @@ return {
         --
         -- When you move your cursor, the highlights will be cleared (the second autocommand).
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+        if client and client:supports_method('textDocument/documentHighlight', event.buf) then
           local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             buffer = event.buf,
@@ -124,7 +124,7 @@ return {
         -- code, if the language server you are using supports them
         --
         -- This may be unwanted, since they displace some of your code
-        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+        if client and client:supports_method('textDocument/inlayHint', event.buf) then
           map('<leader>lh', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
           end, 'Toggle inlay [h]ints')
@@ -262,17 +262,6 @@ return {
       },
     }
 
-    -- https://github.com/nvim-lua/kickstart.nvim/pull/1743
-    -- Now setup those configurations
-    for name, config in pairs(servers) do
-      local config = config or {}
-      -- This handles overriding only values explicitly passed
-      -- by the server configuration above. Useful when disabling
-      -- certain features of an LSP (for example, turning off formatting for ts_ls)
-      config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
-      vim.lsp.config(name, config)
-    end
-
     -- Ensure the servers and tools above are installed
     --
     -- To check the current status of installed tools and/or manually install
@@ -292,10 +281,12 @@ return {
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-    require('mason-lspconfig').setup {
-      ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-      automatic_installation = false,
-    }
+    -- Now setup those configurations
+    for name, server in pairs(servers) do
+      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+      vim.lsp.config(name, server)
+      vim.lsp.enable(name)
+    end
 
     -- NOTE: copied straight from 'lsp-config-all' in neovim help
     vim.lsp.config('lua_ls', {
