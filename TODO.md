@@ -16,5 +16,4 @@ Get tailwind lsp
 
 Implement the most recent commits made to kickstart
 
-Diagnostics are a little bit unreadable outside of trouble
-Could also play with in your existing config making the diagnostic errors not virtual text
+Is there a way to markdown format the diagnostic text like it is in php
