@@ -17,3 +17,7 @@ Get tailwind lsp
 Implement the most recent commits made to kickstart
 
 Is there a way to markdown format the diagnostic text like it is in php
+
+I would like to use the telescope dropdown theme for buffers, but it needs customization
+
+ftplugin for changing the colorscheme on php files because it looks gross right now

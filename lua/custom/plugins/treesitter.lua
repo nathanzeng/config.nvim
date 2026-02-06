@@ -22,6 +22,7 @@ return { -- Highlight, edit, and navigate code
       'jsx',
       'css',
       'php',
+      'phpdoc',
       'json',
       'gitcommit',
       'gitignore',

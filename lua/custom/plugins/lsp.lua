@@ -215,6 +215,7 @@ return {
         },
       },
       vue_ls = {},
+      intelephense = {},
       -- TODO: uncommenting the following sometimes gets it to work in vue files in redpoint
       -- but it is extremely slow and crashes the other lsps too
       -- there is a thought to try making a graphql.config.yml in the mobile directory

@@ -67,9 +67,7 @@ return {
             i = { ['<CR>'] = 'select_vertical' },
           },
         },
-        buffers = {
-          ignore_current_buffer = true,
-        },
+        buffers = {},
       },
       extensions = {
         ['ui-select'] = {
