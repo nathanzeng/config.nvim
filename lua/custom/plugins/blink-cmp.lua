@@ -59,10 +59,6 @@ return {
 
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
-
-      -- This collides with my language switching
-      ['<C-space>'] = false,
-      ['<C-s>'] = { 'show', 'show_documentation', 'hide_documentation' },
     },
 
     completion = {
