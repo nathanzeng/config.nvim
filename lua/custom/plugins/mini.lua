@@ -17,9 +17,6 @@ return {
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
 
-    -- Command line hints
-    require('mini.cmdline').setup()
-
     -- TODO: not sure if i need this
     -- Better buffer delete
     require('mini.bufremove').setup()
