@@ -162,12 +162,6 @@ return {
       jump = { float = true },
     }
 
-    -- LSP servers and clients are able to communicate to each other what features they support.
-    --  By default, Neovim doesn't support everything that is in the LSP specification.
-    --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
-    --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
-
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
     --
@@ -214,6 +208,30 @@ return {
           'vue',
         },
       },
+      -- https://github.com/vuejs/language-tools/wiki/Neovim
+      -- vtsls = {
+      --   settings = {
+      --     vtsls = {
+      --       tsserver = {
+      --         globalPlugins = {
+      --           {
+      --             name = '@vue/typescript-plugin',
+      --             location = vue_language_server_path,
+      --             languages = { 'vue' },
+      --             configNamespace = 'typescript',
+      --           },
+      --         },
+      --       },
+      --     },
+      --   },
+      --   filetypes = {
+      --     'typescript',
+      --     'javascript',
+      --     'javascriptreact',
+      --     'typescriptreact',
+      --     'vue',
+      --   },
+      -- },
       vue_ls = {},
       intelephense = {},
       -- TODO: uncommenting the following sometimes gets it to work in vue files in redpoint
@@ -284,7 +302,6 @@ return {
 
     -- Now setup those configurations
     for name, server in pairs(servers) do
-      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
       vim.lsp.config(name, server)
       vim.lsp.enable(name)
     end
