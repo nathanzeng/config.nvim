@@ -1,6 +1,7 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- For more options, you can see `:help option-list`
+-- NOTE: Do not use `vim.opt` as it will be deprecated https://github.com/neovim/neovim/issues/20107
 
 -- Add line numbers and make them relative
 vim.o.number = true
@@ -24,7 +25,7 @@ vim.o.showcmd = false
 -- TODO: what is the select mode shown in the status line after autocompleting a function
 -- feel like that should get the orange highlight
 vim.api.nvim_set_hl(0, 'InsertCursor', { bg = '#C68642' })
-vim.opt.guicursor = 'i-r-t:block-InsertCursor'
+vim.o.guicursor = 'i-r-t:block-InsertCursor'
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -70,14 +71,17 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- TODO: consider shift width as well
-
 -- Visual only controlling how wide tabs look
-vim.opt.tabstop = 4
+vim.o.tabstop = 4
 
--- Don't have `o` add a comment
--- TODO: this isnt actually working, need to do something with autocommands
-vim.opt.formatoptions:remove 'o'
+-- Do not insert comments automatically with o and O
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Do not insert comments automatically with o and O',
+  pattern = '*',
+  callback = function()
+    vim.opt.formatoptions:remove 'o'
+  end,
+})
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
