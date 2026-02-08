@@ -44,8 +44,6 @@ local custom_gruvbox = {
   replace = normalTheme,
   command = normalTheme,
   inactive = {
-    a = { bg = colors.darkgray, fg = colors.gray, gui = 'bold' },
-    b = { bg = colors.darkgray, fg = colors.gray },
     c = { bg = colors.darkgray, fg = colors.gray },
   },
 }
