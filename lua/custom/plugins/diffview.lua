@@ -23,7 +23,7 @@ return {
       },
     }
 
-    -- TODO: this is a little bit hacky
+    -- TODO: this is a little bit hacky, there is a PR addressing this
     -- e.g. if you toggle close outside of the diffview everything will break
     local function toggle_diffview()
       if diffviewIsOpen then

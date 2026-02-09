@@ -8,7 +8,6 @@ return {
         show_hidden = true,
       },
       -- These keymaps apply to oil buffers only
-      -- TODO: I believe some of the default keymaps collide with my window navigation keymaps
       keymaps = {
         -- Collides with floaterminal
         -- Was originally open file in a new tab

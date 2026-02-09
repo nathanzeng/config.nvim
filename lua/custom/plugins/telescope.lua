@@ -7,7 +7,6 @@
 
 -- Fuzzy Finder (files, lsp, etc)
 return {
-  -- TODO: they reccomend pinning to latest release tag here
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
   dependencies = {
@@ -57,7 +56,14 @@ return {
         -- mappings = {
         --   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         -- },
+
+        -- I want to be able to see hidden files but not the ones in .git/ (the git refs and such)
         file_ignore_patterns = { '%.git/' },
+        -- The following fields make the default layout have the prompt at the top
+        layout_config = {
+          prompt_position = 'top',
+        },
+        sorting_strategy = 'ascending',
       },
       pickers = {
         find_files = { hidden = true },
@@ -67,7 +73,6 @@ return {
             i = { ['<CR>'] = 'select_vertical' },
           },
         },
-        buffers = {},
       },
       extensions = {
         ['ui-select'] = {
@@ -91,7 +96,10 @@ return {
     vim.keymap.set('n', '<leader>fe', builtin.diagnostics, { desc = '[f]ind diagnostic [e]rrors' })
     vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[f]ind [R]esume' })
     vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[f]ind Recent Files ("." for repeat)' })
-    vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader><leader>', function()
+      -- Use dropdown theme for current buffers, no preview necessary
+      builtin.buffers(require('telescope.themes').get_dropdown { previewer = false })
+    end, { desc = '[ ] Find existing buffers' })
     vim.keymap.set('n', '<leader>fd', builtin.git_status, { desc = '[f]ind git [d]iff' })
 
     -- Slightly advanced example of overriding default behavior and theme
