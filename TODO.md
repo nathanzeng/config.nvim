@@ -15,3 +15,5 @@ Try out typescript tools or go for lsp?
 Get tailwind lsp
 
 Implement the most recent commits made to kickstart
+
+replace todo comments with the mini version

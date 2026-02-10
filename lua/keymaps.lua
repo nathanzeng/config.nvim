@@ -39,8 +39,6 @@ end, { desc = '[d]iagnostic window' })
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
-vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR>', { desc = '[b]uffer [d]elete' })
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

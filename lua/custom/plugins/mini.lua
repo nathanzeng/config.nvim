@@ -17,9 +17,11 @@ return {
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
 
-    -- TODO: not sure if i need this
-    -- Better buffer delete
     require('mini.bufremove').setup()
+    -- Don't delete the window when deleting the buffer (splits)
+    vim.keymap.set('n', '<leader>bd', function()
+      MiniBufremove.delete()
+    end, { desc = '[b]uffer [d]elete' })
 
     -- Icons and mock the nvim-tree one
     require('mini.icons').setup()
