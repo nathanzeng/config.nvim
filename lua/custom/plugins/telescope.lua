@@ -73,6 +73,9 @@ return {
             i = { ['<CR>'] = 'select_vertical' },
           },
         },
+        buffers = {
+          sort_mru = 'true',
+        },
       },
       extensions = {
         ['ui-select'] = {
