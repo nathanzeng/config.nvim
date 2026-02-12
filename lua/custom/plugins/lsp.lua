@@ -353,9 +353,6 @@ return {
     })
     vim.lsp.enable 'lua_ls'
 
-    vim.keymap.set('n', 'K', function()
-      vim.lsp.buf.hover { border = 'rounded' }
-    end)
     -- I need this line so that vue custom components get a different color from <div>
     -- https://github.com/vuejs/language-tools/wiki/Neovim
     vim.api.nvim_set_hl(0, '@lsp.type.component', { link = '@type' })

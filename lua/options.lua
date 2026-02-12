@@ -94,5 +94,8 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- Globally set window borders to rounded
+vim.o.winborder = 'rounded'
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

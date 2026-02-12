@@ -69,6 +69,9 @@ return {
           -- auto_insert = function(ctx) return vim.bo.filetype ~= 'markdown' end
         },
       },
+      menu = {
+        border = 'none',
+      },
     },
 
     sources = {

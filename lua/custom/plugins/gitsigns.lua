@@ -11,11 +11,6 @@ return {
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
-      preview_config = {
-        -- Options passed to nvim_open_win
-        -- Makes it so that I get borders on inline hunk preview and blame
-        border = 'rounded',
-      },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
