@@ -17,3 +17,9 @@ Get tailwind lsp
 Implement the most recent commits made to kickstart
 
 replace todo comments with the mini version
+
+get friendly snippets
+
+set the global winborer to rounded and just not for blink?
+
+Put versioning on my plugins that use versions
