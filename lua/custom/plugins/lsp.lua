@@ -21,6 +21,7 @@
 -- and elegantly composed help section, `:help lsp-vs-treesitter`
 return {
   'neovim/nvim-lspconfig',
+  version = '*',
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     -- Mason must be loaded before its dependents so we need to set it up here.

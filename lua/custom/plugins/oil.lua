@@ -1,6 +1,7 @@
 -- NOTE: float seems like it could be cool
 return {
   'stevearc/oil.nvim',
+  version = '*',
   dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
   config = function()
     require('oil').setup {
