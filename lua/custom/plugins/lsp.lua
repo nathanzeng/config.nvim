@@ -26,10 +26,7 @@ return {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     -- Mason must be loaded before its dependents so we need to set it up here.
     -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-
-    { 'mason-org/mason.nvim', opts = {} },
-    'mason-org/mason-lspconfig.nvim',
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    { 'mason-org/mason.nvim', version = '*', opts = {} },
 
     -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
@@ -295,7 +292,6 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
     })
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     -- Now setup those configurations
     for name, server in pairs(servers) do
