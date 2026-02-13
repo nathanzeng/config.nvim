@@ -118,11 +118,10 @@ return {
           })
         end
 
-        -- The following code creates a keymap to toggle inlay hints in your
-        -- code, if the language server you are using supports them
-        --
-        -- This may be unwanted, since they displace some of your code
+        -- Toggle inlay hints if the language server you are using supports them
         if client and client:supports_method('textDocument/inlayHint', event.buf) then
+          -- Start with inlay hints enabled
+          vim.lsp.inlay_hint.enable(true)
           map('<leader>lh', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
           end, 'Toggle inlay [h]ints')
