@@ -48,6 +48,10 @@ local custom_gruvbox = {
   },
 }
 
+local function linesInFile()
+  return vim.api.nvim_buf_line_count(0) .. ' lines'
+end
+
 return {
   'nvim-lualine/lualine.nvim',
   config = function()
@@ -73,7 +77,7 @@ return {
             path = 1,
           },
         },
-        lualine_x = { 'progress' },
+        lualine_x = { linesInFile },
         lualine_y = { 'location' },
         lualine_z = { 'mode' },
       },
