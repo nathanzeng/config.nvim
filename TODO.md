@@ -10,18 +10,10 @@ There is also sonar, but be careful not to mess up your existing dev env
 
 Closing the file wide git blame is a little bit annoying, can we toggle it?
 
-Try out typescript tools or go for lsp?
-
 We need some way to make the lsp file more maintainable
 ideas would be to break the diagnostics into a separate file
 or to put the server configs into their own file
 see maria solano config
-
-Get tailwind lsp
-
-Implement the most recent commits made to kickstart
-
-replace todo comments with the mini version
 
 Add my own custom snippets
 
@@ -39,3 +31,5 @@ Fork diffview.nvim ???
 Get the changed highlight to be more clear like it is on dayfox in diffview
 
 Hide the lualine path when it is a split/window is small to a certain point
+
+conform help docs error
