@@ -27,5 +27,13 @@ return {
     -- Icons and mock the nvim-tree one
     require('mini.icons').setup()
     MiniIcons.mock_nvim_web_devicons()
+
+    -- Highlight hex colors
+    local hipatterns = require 'mini.hipatterns'
+    hipatterns.setup {
+      highlighters = {
+        hex_color = hipatterns.gen_highlighter.hex_color(),
+      },
+    }
   end,
 }
