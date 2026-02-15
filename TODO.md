@@ -35,4 +35,7 @@ Copilot ????????????
 I have a little bit of a gripe that the builtin0 is red in nightfox, but haven't found the perfect color to replace it
 Yellow.bright was quite promising, or just orange
 
+Fork diffview.nvim ???
 Get the changed highlight to be more clear like it is on dayfox in diffview
+
+Hide the lualine path when it is a split/window is small to a certain point

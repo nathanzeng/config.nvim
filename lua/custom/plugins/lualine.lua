@@ -13,28 +13,16 @@ local colors = {
   bForeground  = '#c9ba9b',
 }
 
-local function get_colors_respect_modified(modifiedColors, normalColors)
-  if vim.bo.modified then
-    return modifiedColors
-  else
-    return normalColors
-  end
-end
-
 local normalTheme = {
-  a = { bg = colors.gray, fg = colors.black, gui = 'bold' },
-  b = function()
-    return get_colors_respect_modified(
-      { bg = colors.lightgray, fg = colors.white },
-      { bg = colors.lightgray, fg = colors.bForeground }
-    )
+  a = function()
+    if vim.bo.modified then
+      return { bg = colors.white, fg = colors.darkgray, gui = 'bold' }
+    else
+      return { bg = colors.gray, fg = colors.black, gui = 'bold' }
+    end
   end,
-  c = function()
-    return get_colors_respect_modified(
-      { bg = colors.lightgray, fg = colors.white },
-      { bg = colors.darkgray, fg = colors.gray }
-    )
-  end,
+  b = { bg = colors.lightgray, fg = colors.bForeground },
+  c = { bg = colors.darkgray, fg = colors.gray },
 }
 
 local custom_gruvbox = {
