@@ -8,9 +8,14 @@ Run eslint fix on save to match php storm? the slot thing in mobile would be a g
 Duplicate code fragment linting? I tried this jscpd thing but it didn't work with nvim-lint out of the box
 There is also sonar, but be careful not to mess up your existing dev env
 
-Closing the file wide git blame is a little bit annoying
+Closing the file wide git blame is a little bit annoying, can we toggle it?
 
 Try out typescript tools or go for lsp?
+
+We need some way to make the lsp file more maintainable
+ideas would be to break the diagnostics into a separate file
+or to put the server configs into their own file
+see maria solano config
 
 Get tailwind lsp
 
@@ -18,8 +23,16 @@ Implement the most recent commits made to kickstart
 
 replace todo comments with the mini version
 
-get friendly snippets
+Add my own custom snippets
 
-set the global winborer to rounded and just not for blink?
+see if we can make the git line blame not have the diff... I think there are passthrough options to blame
 
-Put versioning on my plugins that use versions
+is it time to have a keybind to do :q
+could switch exiting neovim to <leader>c
+
+Copilot ????????????
+
+I have a little bit of a gripe that the builtin0 is red in nightfox, but haven't found the perfect color to replace it
+Yellow.bright was quite promising, or just orange
+
+Get the changed highlight to be more clear like it is on dayfox in diffview
