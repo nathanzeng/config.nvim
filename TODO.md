@@ -29,7 +29,3 @@ Yellow.bright was quite promising, or just orange
 
 Fork diffview.nvim ???
 Get the changed highlight to be more clear like it is on dayfox in diffview
-
-Hide the lualine path when it is a split/window is small to a certain point
-
-conform help docs error

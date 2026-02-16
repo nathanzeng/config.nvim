@@ -40,6 +40,24 @@ local function linesInFile()
   return vim.api.nvim_buf_line_count(0) .. ' lines'
 end
 
+local function hide(min_width)
+  return function(str)
+    if vim.fn.winwidth(0) < min_width then
+      return ''
+    end
+    return str
+  end
+end
+
+local function truncateToFirstChar(min_width)
+  return function(str)
+    if vim.fn.winwidth(0) < min_width then
+      return str:sub(1, 1)
+    end
+    return str
+  end
+end
+
 return {
   'nvim-lualine/lualine.nvim',
   config = function()
@@ -63,11 +81,12 @@ return {
             newfile_status = true, -- Display new file status (new file means no write after created)
             file_status = false,
             path = 1,
+            fmt = hide(101),
           },
         },
         lualine_x = { linesInFile },
         lualine_y = { 'location' },
-        lualine_z = { 'mode' },
+        lualine_z = { { 'mode', fmt = truncateToFirstChar(101) } },
       },
       inactive_winbar = {
         lualine_c = { { 'filename', path = 1 } },
