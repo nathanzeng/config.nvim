@@ -33,6 +33,7 @@ return { -- Highlight, edit, and navigate code
     require('nvim-treesitter').install(filetypes)
 
     vim.api.nvim_create_autocmd('FileType', {
+      group = vim.api.nvim_create_augroup('treesitter', { clear = true }),
       pattern = filetypes,
       callback = function()
         vim.treesitter.start()

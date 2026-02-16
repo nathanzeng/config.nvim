@@ -57,6 +57,7 @@ vim.keymap.set({ 'n', 't' }, '<C-t>', toggleTerminal)
 
 -- Autocommand to enter insert mode in terminals
 vim.api.nvim_create_autocmd({ 'BufEnter', 'TermOpen' }, {
+  group = vim.api.nvim_create_augroup('floaterminal', { clear = true }),
   desc = 'Automatically enter Insert mode in terminals',
   pattern = '*',
   callback = function()

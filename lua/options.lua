@@ -76,6 +76,7 @@ vim.o.tabstop = 4
 
 -- Do not insert comments automatically with o and O
 vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('options', { clear = true }),
   desc = 'Do not insert comments automatically with o and O',
   pattern = '*',
   callback = function()
