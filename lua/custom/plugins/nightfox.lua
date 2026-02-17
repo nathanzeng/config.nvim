@@ -7,7 +7,7 @@ return {
   config = function()
     local palettes = {
       -- Everything defined under `all` will be applied to every style, can alternatively apply to specific themes
-      all = {
+      nightfox = {
         -- Each palette defines these colors:
         --   black, red, green, yellow, blue, magenta, cyan, white, orange, pink
         --
@@ -23,8 +23,17 @@ return {
       },
     }
 
+    local Color = require 'nightfox.lib.color'
+
+    local background = '#192330'
+    -- NOTE: these originally used the dim versions of the colors
+    -- I didn't have the energy to import the shades library
+    local diff_blue = Color.from_hex(background):blend(Color.from_hex '#719cd6', 0.35)
+    local diff_red = Color.from_hex(background):blend(Color.from_hex '#c94f6d', 0.30)
+    local diff_green = Color.from_hex(background):blend(Color.from_hex '#81b29a', 0.18)
+
     local specs = {
-      all = {
+      nightfox = {
         -- The below file shows the default values for syntax
         -- https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/palette/nightfox.lua
         syntax = {
@@ -36,6 +45,11 @@ return {
           const = 'magenta',
           type = 'pink',
           preproc = 'blue',
+        },
+        diff = {
+          add = diff_green:to_css(),
+          delete = diff_red:to_css(),
+          text = diff_blue:to_css(),
         },
       },
     }
