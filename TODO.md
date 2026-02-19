@@ -10,6 +10,7 @@ There is also sonar, but be careful not to mess up your existing dev env
 
 Closing the file wide git blame is a little bit annoying, can we toggle it?
 
+In neovim 11 do I even need nvim lsp config anymore
 We need some way to make the lsp file more maintainable
 ideas would be to break the diagnostics into a separate file
 or to put the server configs into their own file
@@ -28,4 +29,7 @@ I have a little bit of a gripe that the builtin0 is red in nightfox, but haven't
 Yellow.bright was quite promising, or just orange
 
 Fork diffview.nvim ???
-Get the changed highlight to be more clear like it is on dayfox in diffview
+
+try out gray for the diagnostic hint color
+
+command for toggling spell check
