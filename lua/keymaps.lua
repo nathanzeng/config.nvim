@@ -31,6 +31,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- NOTE: the native functionality for q is to record a macro, removing that for now
 vim.keymap.set('n', 'q', '<cmd>q<CR>', { desc = '[q]uit window' })
 
+-- Diagnostic keymaps
+vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = '[e]rrors - open diagnostic quickfix list' })
+
 vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.open_float()
 end, { desc = '[d]iagnostic window' })
