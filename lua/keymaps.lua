@@ -38,6 +38,9 @@ vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.open_float()
 end, { desc = '[d]iagnostic window' })
 
+-- NOTE: I'm making this z for now so I remember z= for the suggestions, may want to remap
+vim.keymap.set('n', '<leader>z', '<cmd>setlocal spell!<CR>', { desc = 'spell' })
+
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })

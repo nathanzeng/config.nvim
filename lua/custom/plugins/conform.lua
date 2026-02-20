@@ -5,14 +5,15 @@ return {
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
   keys = {
-    {
-      '<leader>s',
-      function()
-        require('conform').format { async = true, lsp_format = 'fallback' }
-      end,
-      mode = '',
-      desc = '[s]tyle format buffer',
-    },
+    -- I have never needed this keymap so far
+    -- {
+    --   '<leader>s',
+    --   function()
+    --     require('conform').format { async = true, lsp_format = 'fallback' }
+    --   end,
+    --   mode = '',
+    --   desc = '[s]tyle format buffer',
+    -- },
   },
   opts = {
     notify_on_error = false,
@@ -33,7 +34,7 @@ return {
     -- Formatters by file type
     -- Conform can also run multiple formatters sequentially
     -- You can use 'stop_after_first' to run the first available formatter from the list
-    --NOTE: Apparently prettierd is a faster version of prettier
+    -- NOTE: Apparently prettierd is a faster version of prettier
     formatters_by_ft = {
       lua = { 'stylua' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },

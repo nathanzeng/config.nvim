@@ -3,8 +3,6 @@ https://www.npmjs.com/package/graphql-language-service-server#user-content-graph
 :LspLog gives some useful information
 https://www.reddit.com/r/neovim/comments/1d0xj9k/help_needed_with_graphql_lsp_and_linter_for/
 
-Run eslint fix on save to match php storm? the slot thing in mobile would be a good one to test this out on
-
 Duplicate code fragment linting? I tried this jscpd thing but it didn't work with nvim-lint out of the box
 There is also sonar, but be careful not to mess up your existing dev env
 
@@ -20,9 +18,6 @@ Add my own custom snippets
 
 see if we can make the git line blame not have the diff... I think there are passthrough options to blame
 
-is it time to have a keybind to do :q
-could switch exiting neovim to <leader>c
-
 Copilot ????????????
 
 I have a little bit of a gripe that the builtin0 is red in nightfox, but haven't found the perfect color to replace it
@@ -32,4 +27,6 @@ Fork diffview.nvim ???
 
 try out gray for the diagnostic hint color
 
-command for toggling spell check
+todo comments needs to not highlight the line below it so we get parity with phpstorm
+
+if q to quit is to stay we can remove the ftplugin
