@@ -30,3 +30,5 @@ try out gray for the diagnostic hint color
 todo comments needs to not highlight the line below it so we get parity with phpstorm
 
 if q to quit is to stay we can remove the ftplugin
+
+the unnamed unsaved scratch buffers is annoying
