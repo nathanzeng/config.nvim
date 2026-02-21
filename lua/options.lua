@@ -10,9 +10,6 @@ vim.o.relativenumber = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
--- Disable status line since I'm using lualine to put that at the top in winbar
-vim.o.laststatus = 0
-
 -- COMMAND LINE OPTIONS
 -- Don't show the mode
 vim.o.showmode = false

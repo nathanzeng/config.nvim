@@ -8,10 +8,7 @@ vim.o.termguicolors = true
 vim.g.have_nerd_font = true
 
 require 'options'
-
 require 'keymaps'
-
--- require 'lazy-install'
 
 -- Colorscheme
 vim.pack.add({
@@ -30,3 +27,14 @@ require("oil").setup({
   }
 })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Mini
+vim.pack.add({
+  'https://github.com/nvim-mini/mini.nvim'
+})
+require('mini.ai').setup { n_lines = 500 }
+require('mini.surround').setup()
+require('mini.cmdline').setup()
+require('mini.statusline').setup()
+require('mini.icons').setup()
+MiniIcons.mock_nvim_web_devicons()

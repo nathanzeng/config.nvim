@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "mini.nvim": {
+      "rev": "0a6fe4ec57377526e9056fffb4204dbdfe860ebc",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
     "nightfox.nvim": {
       "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
       "src": "https://github.com/EdenEast/nightfox.nvim"
