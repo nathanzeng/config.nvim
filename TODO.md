@@ -18,17 +18,15 @@ Add my own custom snippets
 
 see if we can make the git line blame not have the diff... I think there are passthrough options to blame
 
-Copilot ????????????
-
-I have a little bit of a gripe that the builtin0 is red in nightfox, but haven't found the perfect color to replace it
-Yellow.bright was quite promising, or just orange
-
 Fork diffview.nvim ???
 
 try out gray for the diagnostic hint color
 
-todo comments needs to not highlight the line below it so we get parity with phpstorm
-
 if q to quit is to stay we can remove the ftplugin
 
 the unnamed unsaved scratch buffers is annoying
+
+Camel cased spell check
+Thinking about printing to the console when you toggle spellcheck
+
+php linter? slightly concerned that php storm gave me a diagonostic when I forgot the & in CreateMobileAppDevice.php but neovim did not

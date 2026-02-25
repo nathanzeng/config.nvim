@@ -9,5 +9,7 @@ return {
   'folke/todo-comments.nvim',
   event = 'VimEnter',
   dependencies = { 'nvim-lua/plenary.nvim' },
-  opts = { signs = false, keywords = { TODO = { color = 'warning' } } },
+  opts = { signs = false, keywords = { TODO = { color = 'warning' } }, highlight = {
+    multiline = false,
+  } },
 }
