@@ -11,11 +11,12 @@ return {
           -- Specs allow you to define a value using either a color or template. If the string does
           -- start with `#` the string will be used as the path of the palette table. Defining just
           -- a color uses the base version of that color.
-          -- TODO: orange and red look close enough could prolly just replace red with orange
-          -- I preferred preproc as blue?
           keyword = 'orange',
           number = 'magenta',
           const = 'magenta',
+          builtin0 = 'orange',
+          -- TODO: I preferred preproc as blue?
+          -- TODO: replace all magenta with pink? (which one is easier to see)
         },
       },
     }
