@@ -22,11 +22,15 @@ Fork diffview.nvim ???
 
 try out gray for the diagnostic hint color
 
-if q to quit is to stay we can remove the ftplugin
-
-the unnamed unsaved scratch buffers is annoying
-
 Camel cased spell check
 Thinking about printing to the console when you toggle spellcheck
 
 php linter? slightly concerned that php storm gave me a diagonostic when I forgot the & in CreateMobileAppDevice.php but neovim did not
+
+git changed color to blue
+
+it would be sick if unnest stayed in the toggle terminal
+
+The LSP signature help is backward
+
+todo-comments is not highlighting in diffview

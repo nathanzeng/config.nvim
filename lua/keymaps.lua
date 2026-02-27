@@ -28,6 +28,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<C-left>', '<C-w><', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<C-right>', '<C-w>>', { desc = 'Increase window width' })
+
 -- NOTE: the native functionality for q is to record a macro, removing that for now
 vim.keymap.set('n', 'q', '<cmd>q<CR>', { desc = '[q]uit window' })
 
