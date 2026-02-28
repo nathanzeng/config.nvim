@@ -34,3 +34,5 @@ it would be sick if unnest stayed in the toggle terminal
 The LSP signature help is backward
 
 todo-comments is not highlighting in diffview
+
+CodeCompanion
