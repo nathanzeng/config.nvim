@@ -35,5 +35,8 @@ return {
         hex_color = hipatterns.gen_highlighter.hex_color(),
       },
     }
+
+    -- I find it good for tabbing visually selected text
+    require('mini.move').setup {}
   end,
 }
