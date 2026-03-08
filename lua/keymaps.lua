@@ -39,6 +39,8 @@ end, { desc = '[d]iagnostic window' })
 
 -- NOTE: I'm making this z for now so I remember z= for the suggestions, may want to remap
 vim.keymap.set('n', '<leader>z', '<cmd>setlocal spell!<CR>', { desc = 'spell' })
+-- Treate camel cased as separate words
+vim.o.spelloptions = 'camel'
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
