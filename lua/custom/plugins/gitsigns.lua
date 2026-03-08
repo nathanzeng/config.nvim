@@ -55,7 +55,7 @@ return {
         map('n', '<leader>gr', gitsigns.reset_hunk, { desc = '[r]eset hunk' })
         -- map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
         -- map('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'git [u]ndo stage hunk' })
-        -- map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
+        map('n', '<leader>gR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
         map('n', '<leader>gp', gitsigns.preview_hunk, { desc = '[p]review hunk' })
         map('n', '<leader>gl', function()
           -- blame_line with the full commit message and hunk changes
