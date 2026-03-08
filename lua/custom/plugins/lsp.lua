@@ -237,6 +237,7 @@ return {
       },
       eslint = {},
 
+      stylua = {},
       -- NOTE: copied straight from 'lsp-config-all' in neovim help
       lua_ls = {
         on_init = function(client)
