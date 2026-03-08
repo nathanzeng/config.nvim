@@ -1,6 +1,5 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[w]rite' })
 
 -- Enter and Shift+Enter to get new line below and above without entering insert mode
@@ -17,9 +16,6 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- Up and down arrow in normal mode scroll the page
 vim.keymap.set('n', '<up>', '<C-y>')
 vim.keymap.set('n', '<down>', '<C-e>')
--- Left and right arrow jump by half page
-vim.keymap.set('n', '<left>', '<C-u>')
-vim.keymap.set('n', '<right>', '<C-d>')
 
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
@@ -43,13 +39,6 @@ end, { desc = '[d]iagnostic window' })
 
 -- NOTE: I'm making this z for now so I remember z= for the suggestions, may want to remap
 vim.keymap.set('n', '<leader>z', '<cmd>setlocal spell!<CR>', { desc = 'spell' })
-
--- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
-
--- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
--- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
--- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
--- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
