@@ -1,28 +1,24 @@
 -- stylua: ignore
 local colors = {
-  black        = '#282828',
-  white        = '#ebdbb2',
-  red          = '#fb4934',
-  green        = '#b8bb26',
-  blue         = '#83a598',
-  yellow       = '#fe8019',
-  gray         = '#a89984',
-  darkgray     = '#3c3836',
-  lightgray    = '#504945',
-  inactivegray = '#7c6f64',
-  bForeground  = '#c9ba9b',
+  nord1  = '#3B4252',
+  nord3  = '#4C566A',
+  nord5  = '#E5E9F0',
+  nord6  = '#ECEFF4',
+  nord7  = '#8FBCBB',
+  nord8  = '#88C0D0',
+  nord13 = '#EBCB8B',
 }
 
 local normalTheme = {
   a = function()
     if vim.bo.modified then
-      return { bg = colors.white, fg = colors.darkgray, gui = 'bold' }
+      return { fg = colors.nord1, bg = colors.nord6, gui = 'bold' }
     else
-      return { bg = colors.gray, fg = colors.black, gui = 'bold' }
+      return { fg = colors.nord1, bg = colors.nord8, gui = 'bold' }
     end
   end,
-  b = { bg = colors.lightgray, fg = colors.bForeground },
-  c = { bg = colors.darkgray, fg = colors.gray },
+  b = { fg = colors.nord7, bg = colors.nord1 },
+  c = { fg = colors.nord7, bg = colors.nord3 },
 }
 
 local custom_gruvbox = {
@@ -32,7 +28,7 @@ local custom_gruvbox = {
   replace = normalTheme,
   command = normalTheme,
   inactive = {
-    c = { bg = colors.darkgray, fg = colors.gray },
+    c = { fg = colors.nord7, bg = colors.nord3 },
   },
 }
 
@@ -90,7 +86,6 @@ return {
       },
       inactive_winbar = {
         lualine_c = { { 'filename', path = 1 } },
-        lualine_x = { 'location' },
       },
       sections = {},
       inactive_sections = {},
