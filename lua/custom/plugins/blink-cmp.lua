@@ -85,5 +85,10 @@ return {
 
     -- Shows a signature help window while you type arguments for a function
     signature = { enabled = true },
+
+    -- Disable commandline completions, can just use the built in
+    cmdline = {
+      enabled = false,
+    },
   },
 }
