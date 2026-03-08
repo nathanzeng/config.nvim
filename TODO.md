@@ -34,4 +34,4 @@ The LSP signature help is backward
 
 todo-comments is not highlighting in diffview
 
-CodeCompanion
+DAP
