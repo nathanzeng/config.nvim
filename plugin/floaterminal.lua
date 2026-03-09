@@ -9,12 +9,12 @@ local function create_floating_window(opts)
   local total_width = ui.width
   local total_height = ui.height
 
-  -- Calculate width and height (default 60%)
-  local width = opts.width or math.floor(total_width * 0.6)
-  local height = opts.height or math.floor(total_height * 0.6)
+  -- Width and height, or set default
+  local width = opts.width or math.floor(total_width * 0.65)
+  local height = opts.height or math.floor(total_height * 0.65)
 
-  -- Calculate top-left corner to center the window
-  local row = math.floor((total_height - height) * 0.3)
+  -- Window position: centered horizontally, slightly above center vertically
+  local row = math.floor((total_height - height) * 0.4)
   local col = math.floor((total_width - width) / 2)
 
   local buf = nil
@@ -25,7 +25,7 @@ local function create_floating_window(opts)
   end
 
   -- Floating window options
-  local win_opts = {
+  local window_opts = {
     style = 'minimal',
     relative = 'editor',
     width = width,
@@ -33,12 +33,17 @@ local function create_floating_window(opts)
     row = row,
     col = col,
     border = 'bold',
+    title = '  Terminal ',
+    title_pos = 'center',
   }
 
   -- Open the window
-  local win = vim.api.nvim_open_win(buf, true, win_opts)
+  local window_id = vim.api.nvim_open_win(buf, true, window_opts)
 
-  return { buf = buf, win = win }
+  -- Set window background to the same as normal
+  vim.wo[window_id].winhl = 'Normal:normal'
+
+  return { buf = buf, win = window_id }
 end
 
 local toggleTerminal = function()
