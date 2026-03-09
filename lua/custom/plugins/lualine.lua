@@ -32,8 +32,12 @@ local custom_gruvbox = {
   },
 }
 
-local function linesInFile()
-  return vim.api.nvim_buf_line_count(0) .. ' lines'
+local function progress()
+  return ' ' .. vim.fn.line '.' .. '/' .. vim.api.nvim_buf_line_count(0)
+end
+
+local function column()
+  return ' ' .. vim.fn.col '.'
 end
 
 local function hide(min_width)
@@ -70,7 +74,7 @@ return {
           { 'filetype', separator = '', icon_only = true, colored = false, padding = { left = 1, right = 0 } },
           { 'filename', path = 0, file_status = false, padding = { left = 0, right = 1 } },
         },
-        lualine_b = { 'diagnostics', 'diff', 'branch' },
+        lualine_b = { 'diagnostics', 'diff', { 'branch', icon = '' } },
         lualine_c = {
           {
             'filename',
@@ -80,8 +84,8 @@ return {
             fmt = hide(101),
           },
         },
-        lualine_x = { linesInFile },
-        lualine_y = { 'location' },
+        lualine_x = { progress },
+        lualine_y = { column },
         lualine_z = { { 'mode', fmt = truncateToFirstChar(101) } },
       },
       inactive_winbar = {
