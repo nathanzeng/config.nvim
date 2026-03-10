@@ -35,3 +35,5 @@ The LSP signature help is backward
 todo-comments is not highlighting in diffview
 
 DAP
+
+Put the your custom progress component in the inactive lualine

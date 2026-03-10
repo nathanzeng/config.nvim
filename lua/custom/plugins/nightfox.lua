@@ -3,6 +3,15 @@ return {
   lazy = false,
   priority = 1000, -- Make sure to load this before all the other start plugins.
   config = function()
+    local Color = require 'nightfox.lib.color'
+
+    local background = '#2e3440'
+    -- NOTE: these originally used the dim versions of the colors
+    -- I didn't have the energy to import the shades library
+    local diff_blue = Color.from_hex(background):blend(Color.from_hex '#81a1c1', 0.35)
+    local diff_red = Color.from_hex(background):blend(Color.from_hex '#bf616a', 0.30)
+    local diff_green = Color.from_hex(background):blend(Color.from_hex '#a3be8c', 0.18)
+
     local specs = {
       nordfox = {
         -- The below file shows the default values for syntax
@@ -18,10 +27,13 @@ return {
           -- TODO: I preferred preproc as blue?
           -- TODO: replace all magenta with pink? (which one is easier to see)
         },
+        diff = {
+          -- add = diff_green:to_css(),
+          -- delete = diff_red:to_css(),
+          text = diff_blue:to_css(),
+        },
       },
     }
-
-    -- TODO: I think I still do want to brighten up the diffs and not use teal
 
     require('nightfox').setup { specs = specs }
     vim.cmd.colorscheme 'nordfox'
