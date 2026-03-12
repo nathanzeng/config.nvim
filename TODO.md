@@ -37,3 +37,7 @@ todo-comments is not highlighting in diffview
 DAP
 
 Put the your custom progress component in the inactive lualine
+
+we need json lsp or lint
+
+markdown preview

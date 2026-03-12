@@ -38,9 +38,11 @@ vim.keymap.set('n', '<leader>d', function()
 end, { desc = '[d]iagnostic window' })
 
 -- NOTE: I'm making this z for now so I remember z= for the suggestions, may want to remap
-vim.keymap.set('n', '<leader>z', '<cmd>setlocal spell!<CR>', { desc = 'spell' })
+vim.keymap.set('n', '<leader>z', '<cmd>setlocal spell!<CR>', { desc = 'Toggle spell check' })
 -- Treate camel cased as separate words
 vim.o.spelloptions = 'camel'
+
+vim.keymap.set('n', '<leader>p', '"0p', { desc = '[p]aste from yank register "0' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
