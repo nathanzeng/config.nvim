@@ -2,6 +2,8 @@
 --  See `:help vim.keymap.set()`
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[w]rite' })
 
+vim.keymap.set('i', 'ff', '<Esc>', { desc = 'Escape' })
+
 -- Enter and Shift+Enter to get new line below and above without entering insert mode
 vim.keymap.set('n', '<CR>', 'o<Esc>')
 vim.keymap.set('n', '<S-CR>', 'O<Esc>')
