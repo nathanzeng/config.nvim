@@ -134,9 +134,6 @@ return {
       jump = { float = true },
     }
 
-    -- Enable the following language servers
-    --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-    --
     --  Add any additional override configuration in the following tables. Available keys are:
     --  - cmd (table): Override the default command used to start the server
     --  - filetypes (table): Override the default list of associated filetypes for the server
@@ -149,12 +146,6 @@ return {
       .. '/node_modules/@vue/language-server'
 
     local servers = {
-      -- clangd = {},
-      -- gopls = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
-      -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-      --
       -- NOTE: Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       --    vts_ls and the above thing are both options
@@ -285,6 +276,9 @@ return {
           Lua = {},
         },
       },
+
+      -- i think this maps to json-lsp in mason? the gh links don't match tho
+      jsonls = {},
     }
 
     -- Now setup those configurations
