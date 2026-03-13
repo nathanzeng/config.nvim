@@ -18,7 +18,7 @@ Add my own custom snippets
 
 see if we can make the git line blame not have the diff... I think there are passthrough options to blame
 
-Fork diffview.nvim ???
+Fork diffview.nvim ??? my hacked toggle is hitting limitations
 
 try out gray for the diagnostic hint color
 
