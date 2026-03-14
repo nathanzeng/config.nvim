@@ -1,6 +1,6 @@
 return {
   'mfussenegger/nvim-dap',
-  version = '*',
+  -- TODO: we do not need to be lazy loading this, move this into the config
   keys = {
     {
       '<leader>ds',
