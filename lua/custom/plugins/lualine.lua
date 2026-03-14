@@ -90,6 +90,7 @@ return {
       },
       inactive_winbar = {
         lualine_c = { { 'filename', path = 1 } },
+        lualine_x = { progress },
       },
       sections = {},
       inactive_sections = {},
