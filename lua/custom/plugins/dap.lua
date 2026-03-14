@@ -1,61 +1,26 @@
 return {
   'mfussenegger/nvim-dap',
-  -- TODO: we do not need to be lazy loading this, move this into the config
-  keys = {
-    {
-      '<leader>ds',
-      function()
-        require('dap').continue()
-      end,
-      desc = 'Start/Continue',
-    },
-    {
-      '<leader>di',
-      function()
-        require('dap').step_into()
-      end,
-      desc = 'Step Into',
-    },
-    {
-      '<right>',
-      function()
-        require('dap').step_over()
-      end,
-      desc = 'Step Over',
-    },
-    {
-      '<leader>do',
-      function()
-        require('dap').step_out()
-      end,
-      desc = 'Step Out',
-    },
-    {
-      '<leader>db',
-      function()
-        require('dap').toggle_breakpoint()
-      end,
-      desc = 'Toggle Breakpoint',
-    },
-    {
-      '<leader>dB',
-      function()
-        require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-      end,
-      desc = 'Set Breakpoint',
-    },
-    -- TODO: we should figure out if we can do this in our ui
-    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-    -- {
-    --   '<F7>',
-    --   function()
-    --     require('dapui').toggle()
-    --   end,
-    --   desc = 'Debug: See last session result.',
-    -- },
-  },
   config = function()
     local dap = require 'dap'
+
+    local map = function(mode, keys, func, desc)
+      mode = mode or 'n'
+      vim.keymap.set(mode, keys, func, { desc = 'Debug: ' .. desc })
+    end
+
+    map('n', '<leader>dc', dap.continue, 'Start/[c]ontinue')
+    map('n', '<leader>dt', dap.terminate, '[t]erminate')
+    map('n', '<leader>di', dap.step_into, 'Step [i]nto')
+    map('n', '<right>', dap.step_over, '-> Step Over')
+    map('n', '<leader>do', dap.step_out, 'Step [o]ut')
+    map('n', '<leader>db', dap.toggle_breakpoint, 'Toggle [b]reakpoint')
+    map('n', '<leader>dB', function()
+      dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+    end, 'Set [B]reakpoint on condition')
+
+    -- TODO: we should figure out if we can do this in our ui
+    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+    -- map('n', '<F7>', require('dapui').toggle, 'See last session result')
 
     -- Change breakpoint icons
     -- TODO: I want these to be theme colors instead of hardcodes
@@ -74,6 +39,7 @@ return {
       vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
     end
 
+    -- Configure DAP for PHP
     dap.adapters.php = {
       type = 'executable',
       command = 'node',
