@@ -43,8 +43,7 @@ vim.keymap.set('n', '<leader>z', '<cmd>setlocal spell!<CR>', { desc = 'Toggle sp
 vim.o.spelloptions = 'camel'
 
 -- More ergonomic keymap for pasting from the yank register
-vim.keymap.set('n', '<leader>p', '"0p', { desc = '[p]aste from yank register "0' })
-vim.keymap.set('x', '<leader>p', '"0p', { desc = '[p]aste from yank register "0' })
+vim.keymap.set({ 'n', 'x' }, '<leader>p', '"0p', { desc = '[p]aste from yank register "0' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
