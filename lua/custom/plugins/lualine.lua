@@ -67,7 +67,7 @@ return {
         section_separators = { left = '', right = '' },
         component_separators = { left = '│', right = '│' },
         -- TODO: would be nice if I could do this for the diffed files in the diffview too
-        disabled_filetypes = { winbar = { 'qf', 'DiffviewFiles' } },
+        disabled_filetypes = { winbar = { 'qf', 'DiffviewFiles', 'dap-view', 'dap-repl' } },
       },
       winbar = {
         lualine_a = {
