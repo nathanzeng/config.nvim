@@ -8,15 +8,13 @@ There is also sonar, but be careful not to mess up your existing dev env
 
 Closing the file wide git blame is a little bit annoying, can we toggle it?
 
-In neovim 11 do I even need nvim lsp config anymore
 We need some way to make the lsp file more maintainable
 ideas would be to break the diagnostics into a separate file
 or to put the server configs into their own file
 see maria solano config
+or put the telescope stuff in telescope, see kickstart
 
-Add my own custom snippets
-
-see if we can make the git line blame not have the diff... I think there are passthrough options to blame
+Add my own custom snippets or use friendly?
 
 Fork diffview.nvim ??? my hacked toggle is hitting limitations
 
@@ -33,7 +31,5 @@ it would be sick if unnest stayed in the toggle terminal
 The LSP signature help is backward
 
 todo-comments is not highlighting in diffview
-
-DAP/debugprint
 
 Put the your custom progress component in the inactive lualine

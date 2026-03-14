@@ -1,3 +1,4 @@
+-- TODO: make this a dependency of dap instead
 return {
   {
     'igorlfs/nvim-dap-view',
