@@ -10,8 +10,7 @@ return {
       },
       -- These keymaps apply to oil buffers only
       keymaps = {
-        -- Collides with floaterminal
-        -- Was originally open file in a new tab
+        -- Collides with floaterminal, was originally open file in a new tab
         ['<C-t>'] = false,
         -- Live grep in current directory
         ['<leader>fg'] = {
@@ -43,6 +42,8 @@ return {
         ['<C-h>'] = false,
         ['<C-l>'] = false,
         ['<leader>r'] = { 'actions.refresh' },
+        -- This changed the CWD by default? Anyways, I need tilde
+        ['~'] = false,
       },
     }
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
