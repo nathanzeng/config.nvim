@@ -65,6 +65,8 @@ return {
           prompt_position = 'top',
         },
         sorting_strategy = 'ascending',
+        -- This makes it so that when you scroll to the end of the results list, you don't wrap
+        scroll_strategy = 'limit',
       },
       pickers = {
         find_files = { hidden = true },
