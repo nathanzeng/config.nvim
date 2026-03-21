@@ -196,7 +196,20 @@ return {
       --   },
       -- },
       vue_ls = {},
-      intelephense = {},
+      intelephense = {
+        root_markers = { 'composer.json' },
+        -- TODO: Profile::findOrFail() broke in the root repo
+        -- TODO: I think it's since we added global, not sure. Below code does not change anything
+        -- settings = {
+        --   intelephense = {
+        --     files = {
+        --       exclude = {
+        --         '**/global/**',
+        --       },
+        --     },
+        --   },
+        -- },
+      },
       -- TODO: uncommenting the following sometimes gets it to work in vue files in redpoint
       -- but it is extremely slow and crashes the other lsps too
       -- there is a thought to try making a graphql.config.yml in the mobile directory
