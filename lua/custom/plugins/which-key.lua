@@ -24,7 +24,6 @@ return {
       { '<leader>g', group = '[g]it' },
       { '<leader>l', group = '[l]SP' },
       { '<leader>b', group = '[b]uffer' },
-      { '<leader>d', group = '[d]ebug' },
     },
   },
 }

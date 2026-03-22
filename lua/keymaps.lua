@@ -34,11 +34,11 @@ vim.keymap.set('n', '<C-down>', '<C-w>+', { desc = 'Increase window height' })
 vim.keymap.set('n', 'q', '<cmd>q<CR>', { desc = '[q]uit window' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>be', vim.diagnostic.setloclist, { desc = '[b]uffer [e]rrors - diagnostic quickfix list' })
+vim.keymap.set('n', '<leader>D', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix list, for buffer' })
 
-vim.keymap.set('n', '<leader>e', function()
+vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.open_float()
-end, { desc = '[e]rror diagnostic' })
+end, { desc = '[d]iagnostic window' })
 
 -- NOTE: I'm making this z for now so I remember z= for the suggestions, may want to remap
 vim.keymap.set('n', '<leader>z', '<cmd>setlocal spell!<CR>', { desc = 'Toggle spell check' })
