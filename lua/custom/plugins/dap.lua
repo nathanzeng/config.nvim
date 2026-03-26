@@ -1,6 +1,5 @@
 return {
   'mfussenegger/nvim-dap',
-  enabled = false,
   config = function()
     local dap = require 'dap'
 
@@ -9,13 +8,13 @@ return {
       vim.keymap.set(mode, keys, func, { desc = 'Debug: ' .. desc })
     end
 
-    map('n', '<leader>dc', dap.continue, 'Start/[c]ontinue')
-    map('n', '<leader>dt', dap.terminate, '[t]erminate')
-    map('n', '<leader>di', dap.step_into, 'Step [i]nto')
+    map('n', '<leader>rs', dap.continue, '[s]tart/continue')
+    map('n', '<leader>rt', dap.terminate, '[t]erminate')
+    map('n', '<leader>ri', dap.step_into, 'Step [i]nto')
     map('n', '<right>', dap.step_over, '-> Step Over')
-    map('n', '<leader>do', dap.step_out, 'Step [o]ut')
-    map('n', '<leader>db', dap.toggle_breakpoint, 'Toggle [b]reakpoint')
-    map('n', '<leader>dB', function()
+    map('n', '<leader>ro', dap.step_out, 'Step [o]ut')
+    map('n', '<leader>rb', dap.toggle_breakpoint, 'Toggle [b]reakpoint')
+    map('n', '<leader>rB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, 'Set [B]reakpoint on condition')
 
