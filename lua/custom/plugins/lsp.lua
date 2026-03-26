@@ -197,18 +197,34 @@ return {
       -- },
       vue_ls = {},
       intelephense = {
-        root_markers = { 'composer.json' },
-        -- TODO: Profile::findOrFail() broke in the root repo
-        -- TODO: I think it's since we added global, not sure. Below code does not change anything
-        -- settings = {
-        --   intelephense = {
-        --     files = {
-        --       exclude = {
-        --         '**/global/**',
-        --       },
-        --     },
-        --   },
+        -- init_options = {
+        --   clearCache = true,
         -- },
+        root_markers = { 'composer.json' }, -- Makes sure that global doesn't reach to parent
+        settings = {
+          intelephense = {
+            files = {
+              -- Maximum maxSize
+              maxSize = 5000000,
+              exclude = {
+                '**/.git/**',
+                '**/.svn/**',
+                '**/.hg/**',
+                '**/CVS/**',
+                '**/.DS_Store/**',
+                '**/node_modules/**',
+                '**/bower_components/**',
+                '**/vendor/**/{Tests,tests}/**',
+                '**/.history/**',
+                '**/vendor/**/vendor/**',
+                -- Below are my editions, above are just defaults
+                'global/**',
+                '**/vendor/composer/**',
+                '**/vendor/_laravel_idea/**',
+              },
+            },
+          },
+        },
       },
       -- TODO: uncommenting the following sometimes gets it to work in vue files in redpoint
       -- but it is extremely slow and crashes the other lsps too
