@@ -67,6 +67,9 @@ return {
         sorting_strategy = 'ascending',
         -- This makes it so that when you scroll to the end of the results list, you don't wrap
         scroll_strategy = 'limit',
+        path_display = {
+          'filename_first',
+        },
       },
       pickers = {
         find_files = { hidden = true },
