@@ -54,8 +54,5 @@ return {
         port = 9003,
       },
     }
-
-    -- TODO: make debugging a test easier, this is how I do it from the terminal right now
-    -- XDEBUG_SESSION=1 php vendor/bin/phpunit path-to-test/Test.php
   end,
 }
