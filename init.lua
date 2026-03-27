@@ -27,9 +27,6 @@ vim.g.maplocalleader = ' '
 -- Allegedly gives 24 bit color
 vim.opt.termguicolors = true
 
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
-
 require 'options'
 
 require 'keymaps'
