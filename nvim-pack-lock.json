@@ -26,9 +26,8 @@
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.nvim": {
-      "rev": "a995fe9cd4193fb492b5df69175a351a74b3d36b",
-      "src": "https://github.com/nvim-mini/mini.nvim",
-      "version": ">=0.0.0"
+      "rev": "debd726e1b620e9934d554c2772de2e99cd3ccbe",
+      "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nightfox.nvim": {
       "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
