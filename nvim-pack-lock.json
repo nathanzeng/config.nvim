@@ -9,9 +9,8 @@
       "src": "https://github.com/sindrets/diffview.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "a462f416e2ce4744531c6256252dee99a7d34a83",
-      "src": "https://github.com/lewis6991/gitsigns.nvim",
-      "version": ">=0.0.0"
+      "rev": "50c205548d8b037b7ff6378fca6d21146f0b6161",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lualine.nvim": {
       "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
