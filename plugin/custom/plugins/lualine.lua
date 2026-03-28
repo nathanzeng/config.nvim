@@ -58,9 +58,7 @@ local function truncateToFirstChar(min_width)
   end
 end
 
-return {
-  'nvim-lualine/lualine.nvim',
-  config = function()
+vim.pack.add({'https://github.com/nvim-lualine/lualine.nvim'})
     require('lualine').setup {
       options = {
         theme = custom_gruvbox,
@@ -95,5 +93,3 @@ return {
       sections = {},
       inactive_sections = {},
     }
-  end,
-}
