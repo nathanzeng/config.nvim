@@ -1,15 +1,16 @@
 -- Highlight keywords
--- TODO
--- HACK
--- WARN
--- PERF
--- NOTE
--- TEST
-return {
-  'folke/todo-comments.nvim',
-  event = 'VimEnter',
-  dependencies = { 'nvim-lua/plenary.nvim' },
-  opts = { signs = false, keywords = { TODO = { color = 'warning' } }, highlight = {
+-- TODO:
+-- HACK:
+-- WARN:
+-- PERF:
+-- NOTE:
+-- TEST:
+vim.pack.add({ 'https://github.com/folke/todo-comments.nvim' })
+
+require('todo-comments').setup({
+  signs = false,
+  keywords = { TODO = { color = 'warning' } },
+  highlight = {
     multiline = false,
-  } },
-}
+  },
+})
