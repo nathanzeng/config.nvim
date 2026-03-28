@@ -1,12 +1,12 @@
 -- Autoformat
-vim.pack.add {
+vim.pack.add({
   {
     src = 'https://github.com/stevearc/conform.nvim',
-    version = vim.version.range '*',
+    version = 'v9.1.0',
   },
-}
+})
 
-require('conform').setup {
+require('conform').setup({
   notify_on_error = false,
   format_on_save = function(bufnr)
     -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -37,4 +37,4 @@ require('conform').setup {
     graphql = { 'prettierd', 'prettier', stop_after_first = true },
     html = { 'prettierd', 'prettier', stop_after_first = true },
   },
-}
+})
