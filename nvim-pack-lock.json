@@ -79,6 +79,10 @@
     "vim-test": {
       "rev": "8fe182032e4c7c933e2e598fe402d24cbf782b8d",
       "src": "https://github.com/vim-test/vim-test"
+    },
+    "which-key.nvim": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
     }
   }
 }
