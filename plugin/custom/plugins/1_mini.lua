@@ -1,8 +1,7 @@
--- Collection of various small independent plugins/modules
-return {
-  'nvim-mini/mini.nvim',
-  version = '*',
-  config = function()
+  vim.pack.add({{
+    src = 'https://github.com/nvim-mini/mini.nvim',
+    version = vim.version.range('*')
+  },})
     -- Better Around/Inside textobjects
     --
     -- Examples:
@@ -38,5 +37,3 @@ return {
 
     -- I find it good for tabbing visually selected text
     require('mini.move').setup {}
-  end,
-}

@@ -1,9 +1,9 @@
+  vim.pack.add({{
+    src = 'https://github.com/stevearc/oil.nvim',
+    version = vim.version.range('*')
+  },})
+
 -- NOTE: float seems like it could be cool
-return {
-  'stevearc/oil.nvim',
-  version = '*',
-  dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
-  config = function()
     require('oil').setup {
       view_options = {
         show_hidden = true,
@@ -47,7 +47,3 @@ return {
       },
     }
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-  end,
-  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-  lazy = false,
-}
