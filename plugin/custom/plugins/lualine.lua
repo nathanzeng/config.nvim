@@ -58,38 +58,39 @@ local function truncateToFirstChar(min_width)
   end
 end
 
-vim.pack.add({'https://github.com/nvim-lualine/lualine.nvim'})
-    require('lualine').setup {
-      options = {
-        theme = custom_gruvbox,
-        section_separators = { left = '', right = '' },
-        component_separators = { left = '│', right = '│' },
-        -- TODO: would be nice if I could do this for the diffed files in the diffview too
-        disabled_filetypes = { winbar = { 'qf', 'DiffviewFiles', 'dap-view', 'dap-repl' } },
+vim.pack.add { 'https://github.com/nvim-lualine/lualine.nvim' }
+
+require('lualine').setup {
+  options = {
+    theme = custom_gruvbox,
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '│', right = '│' },
+    -- TODO: would be nice if I could do this for the diffed files in the diffview too
+    disabled_filetypes = { winbar = { 'qf', 'DiffviewFiles', 'dap-view', 'dap-repl' } },
+  },
+  winbar = {
+    lualine_a = {
+      { 'filetype', separator = '', icon_only = true, colored = false, padding = { left = 1, right = 0 } },
+      { 'filename', path = 0, file_status = false, padding = { left = 0, right = 1 } },
+    },
+    lualine_b = { 'diagnostics', 'diff', { 'branch', icon = '' } },
+    lualine_c = {
+      {
+        'filename',
+        newfile_status = true, -- Display new file status (new file means no write after created)
+        file_status = false,
+        path = 1,
+        fmt = hide(101),
       },
-      winbar = {
-        lualine_a = {
-          { 'filetype', separator = '', icon_only = true, colored = false, padding = { left = 1, right = 0 } },
-          { 'filename', path = 0, file_status = false, padding = { left = 0, right = 1 } },
-        },
-        lualine_b = { 'diagnostics', 'diff', { 'branch', icon = '' } },
-        lualine_c = {
-          {
-            'filename',
-            newfile_status = true, -- Display new file status (new file means no write after created)
-            file_status = false,
-            path = 1,
-            fmt = hide(101),
-          },
-        },
-        lualine_x = { progress },
-        lualine_y = { column },
-        lualine_z = { { 'mode', fmt = truncateToFirstChar(101) } },
-      },
-      inactive_winbar = {
-        lualine_c = { { 'filename', path = 1 } },
-        lualine_x = { progress },
-      },
-      sections = {},
-      inactive_sections = {},
-    }
+    },
+    lualine_x = { progress },
+    lualine_y = { column },
+    lualine_z = { { 'mode', fmt = truncateToFirstChar(101) } },
+  },
+  inactive_winbar = {
+    lualine_c = { { 'filename', path = 1 } },
+    lualine_x = { progress },
+  },
+  sections = {},
+  inactive_sections = {},
+}
