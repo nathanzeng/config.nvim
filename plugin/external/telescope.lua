@@ -16,10 +16,7 @@ vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvim-telescope/telescope-ui-select.nvim',
   'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
-})
-
-vim.pack.add({
-  { src = 'https://github.com/nvim-telescope/telescope.nvim', version = 'v0.2.1' },
+  'https://github.com/nvim-telescope/telescope.nvim',
 })
 
 -- Telescope is a fuzzy finder that comes with a lot of different things that
