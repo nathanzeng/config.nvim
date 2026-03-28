@@ -33,11 +33,11 @@ local custom_gruvbox = {
 }
 
 local function progress()
-  return ' ' .. vim.fn.line '.' .. '/' .. vim.api.nvim_buf_line_count(0)
+  return ' ' .. vim.fn.line('.') .. '/' .. vim.api.nvim_buf_line_count(0)
 end
 
 local function column()
-  return ' ' .. vim.fn.col '.'
+  return ' ' .. vim.fn.col('.')
 end
 
 local function hide(min_width)
@@ -58,9 +58,9 @@ local function truncateToFirstChar(min_width)
   end
 end
 
-vim.pack.add { 'https://github.com/nvim-lualine/lualine.nvim' }
+vim.pack.add({ 'https://github.com/nvim-lualine/lualine.nvim' })
 
-require('lualine').setup {
+require('lualine').setup({
   options = {
     theme = custom_gruvbox,
     section_separators = { left = '', right = '' },
@@ -93,4 +93,4 @@ require('lualine').setup {
   },
   sections = {},
   inactive_sections = {},
-}
+})

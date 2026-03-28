@@ -1,10 +1,9 @@
-vim.pack.add { {
-  src = 'https://github.com/stevearc/oil.nvim',
-  version = vim.version.range '*',
-} }
+vim.pack.add({
+  { src = 'https://github.com/stevearc/oil.nvim', version = vim.version.range('*') },
+})
 
 -- NOTE: float seems like it could be cool
-require('oil').setup {
+require('oil').setup({
   view_options = {
     show_hidden = true,
   },
@@ -15,9 +14,9 @@ require('oil').setup {
     -- Live grep in current directory
     ['<leader>fg'] = {
       function()
-        require('telescope.builtin').live_grep {
+        require('telescope.builtin').live_grep({
           cwd = require('oil').get_current_dir(),
-        }
+        })
       end,
       mode = 'n',
       --nowait to see if there is a longer key combo elsewhere
@@ -27,9 +26,9 @@ require('oil').setup {
     -- Find files in current directory
     ['<leader>ff'] = {
       function()
-        require('telescope.builtin').find_files {
+        require('telescope.builtin').find_files({
           cwd = require('oil').get_current_dir(),
-        }
+        })
       end,
       mode = 'n',
       nowait = true,
@@ -45,5 +44,5 @@ require('oil').setup {
     -- This changed the CWD by default? Anyways, I need tilde
     ['~'] = false,
   },
-}
+})
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })

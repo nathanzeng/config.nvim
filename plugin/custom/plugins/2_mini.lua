@@ -1,14 +1,14 @@
-vim.pack.add { {
-  src = 'https://github.com/nvim-mini/mini.nvim',
-  version = vim.version.range '*',
-} }
+vim.pack.add({
+  { src = 'https://github.com/nvim-mini/mini.nvim', version = vim.version.range('*') },
+})
+
 -- Better Around/Inside textobjects
 --
 -- Examples:
 --  - va)  - [V]isually select [A]round [)]paren
 --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
 --  - ci'  - [C]hange [I]nside [']quote
-require('mini.ai').setup { n_lines = 500 }
+require('mini.ai').setup({ n_lines = 500 })
 
 -- Add/delete/replace surroundings (brackets, quotes, etc.)
 --
@@ -28,12 +28,12 @@ require('mini.icons').setup()
 MiniIcons.mock_nvim_web_devicons()
 
 -- Highlight hex colors
-local hipatterns = require 'mini.hipatterns'
-hipatterns.setup {
+local hipatterns = require('mini.hipatterns')
+hipatterns.setup({
   highlighters = {
     hex_color = hipatterns.gen_highlighter.hex_color(),
   },
-}
+})
 
 -- I find it good for tabbing visually selected text
-require('mini.move').setup {}
+require('mini.move').setup()
