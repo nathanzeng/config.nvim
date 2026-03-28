@@ -1,3 +1,4 @@
+-- TODO: i believe this needs to go before the very first vim.pack.add otherwise it will fail on clean install
 local hooks = function(ev)
   -- Use available |event-data|
   local name, kind = ev.data.spec.name, ev.data.kind
