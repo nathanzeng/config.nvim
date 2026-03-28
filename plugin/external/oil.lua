@@ -1,6 +1,4 @@
-vim.pack.add({
-  { src = 'https://github.com/stevearc/oil.nvim', version = vim.version.range('*') },
-})
+vim.pack.add({ 'https://github.com/stevearc/oil.nvim' })
 
 -- NOTE: float seems like it could be cool
 require('oil').setup({
