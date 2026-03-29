@@ -6,6 +6,8 @@ local hooks = function(ev)
   if name == 'telescope-fzf-native.nvim' and (kind == 'install' or kind == 'update') then
     -- Append `:wait()` if you need synchronous execution
     vim.system({ 'make' }, { cwd = ev.data.path })
+  elseif name == 'LuaSnip' and (kind == 'install' or kind == 'update') then
+    vim.system({ 'make install_jsregexp' }, { cwd = ev.data.path })
   end
 end
 
