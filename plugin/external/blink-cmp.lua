@@ -1,9 +1,5 @@
 vim.pack.add({
   {
-    src = 'https://github.com/L3MON4D3/LuaSnip',
-    version = 'v2.4.1',
-  },
-  {
     src = 'https://github.com/saghen/blink.cmp',
     version = 'v1.10.1',
   },
@@ -54,8 +50,6 @@ require('blink.cmp').setup({
   sources = {
     default = { 'lsp', 'path', 'snippets' },
   },
-
-  snippets = { preset = 'luasnip' },
 
   -- See :h blink-cmp-config-fuzzy for more information
   fuzzy = { implementation = 'prefer_rust_with_warning' },
