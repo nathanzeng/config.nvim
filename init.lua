@@ -24,6 +24,27 @@ Kickstart Guide:
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+local hooks = function(ev)
+  -- Use available |event-data|
+  local name, kind = ev.data.spec.name, ev.data.kind
+  -- Run build script after plugin's code has changed
+  if name == 'telescope-fzf-native.nvim' and (kind == 'install' or kind == 'update') then
+    -- Append `:wait()` if you need synchronous execution
+    vim.system({ 'make' }, { cwd = ev.data.path })
+  elseif name == 'LuaSnip' and (kind == 'install' or kind == 'update') then
+    vim.system({ 'make install_jsregexp' }, { cwd = ev.data.path })
+  elseif name == 'nvim-treesitter' and kind == 'update' then
+    if not ev.data.active then
+      vim.cmd.packadd('nvim-treesitter')
+    end
+    vim.cmd('TSUpdate')
+  end
+end
+
+-- If hooks need to run on install, run this before `vim.pack.add()`
+-- To act on install from lockfile, run before very first `vim.pack.add()`
+vim.api.nvim_create_autocmd('PackChanged', { callback = hooks })
+
 -- Allegedly gives 24 bit color
 vim.opt.termguicolors = true
 
