@@ -32,5 +32,5 @@ local specs = {
   },
 }
 
-require('nightfox').setup({ specs = specs })
+require('nightfox').setup({ options = { transparent = true }, specs = specs })
 vim.cmd.colorscheme('nordfox')
