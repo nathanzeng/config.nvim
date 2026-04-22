@@ -38,10 +38,6 @@ vim.schedule(function()
       hex_color = hipatterns.gen_highlighter.hex_color(),
     },
   })
-
-  -- TODO: defaults work on mac with option, but alt collides with ghostty binds on linux
-  -- I find it good for tabbing visually selected text
-  require('mini.move').setup()
 end)
 
 -- Icons and mock the nvim-tree one
