@@ -8,7 +8,6 @@ vim.schedule(function()
   require('diffview').setup({
     keymaps = {
       file_panel = {
-        -- TODO: I would like to upstream this
         {
           'n',
           'gf',
