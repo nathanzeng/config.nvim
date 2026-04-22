@@ -8,8 +8,6 @@ vim.schedule(function()
   require('diffview').setup({
     keymaps = {
       file_panel = {
-        -- Conflicts with leader key
-        { { 'n', 'x' }, '<space>', false },
         -- TODO: I would like to upstream this
         {
           'n',
