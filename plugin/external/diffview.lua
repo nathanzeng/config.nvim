@@ -12,9 +12,7 @@ vim.schedule(function()
           'n',
           'gf',
           function()
-            require('diffview.config').actions.goto_file_edit()
-            -- Close the last accessed tab (the diffview)
-            vim.cmd.tabclose('#')
+            require('diffview.config').actions.goto_file_edit_close()
           end,
           { desc = 'Open the file in the previous tabpage' },
         },
