@@ -36,6 +36,14 @@ vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.open_float()
 end, { desc = '[d]iagnostic window' })
 
+-- Undo my enter keybind for qf buffers
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'qf' },
+  callback = function(ev)
+    vim.keymap.set('n', '<CR>', '<CR>', { buf = ev.buf })
+  end,
+})
+
 local function toggle_spell_check()
   vim.o.spell = not vim.o.spell
   if vim.o.spell then
