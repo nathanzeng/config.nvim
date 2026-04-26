@@ -27,6 +27,10 @@ vim.o.showcmd = false
 vim.api.nvim_set_hl(0, 'InsertCursor', { bg = '#C68642' })
 vim.o.guicursor = 'i-r-t:block-InsertCursor'
 
+-- Only highlight the cursorline number
+vim.o.cursorline = true
+vim.o.cursorlineopt = 'number'
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.

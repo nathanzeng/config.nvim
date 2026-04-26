@@ -6,6 +6,9 @@ vim.schedule(function()
   vim.pack.add({ 'https://github.com/dlyongemallo/diffview.nvim' })
 
   require('diffview').setup({
+    -- Maintain the full cursorline in the file panel
+    file_panel = { win_config = { win_opts = { cursorlineopt = 'both' } } },
+    -- Some custom file panel keymaps
     keymaps = {
       file_panel = {
         {
