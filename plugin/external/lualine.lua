@@ -1,3 +1,5 @@
+vim.pack.add({ 'https://github.com/nvim-lualine/lualine.nvim' })
+
 -- stylua: ignore
 local colors = {
   nord1  = '#3B4252',
@@ -74,14 +76,12 @@ local oil = {
       end,
     },
     lualine_b = { { 'branch', icon = '' } },
-    lualine_x = { progress },
-    lualine_y = { column },
+    lualine_x = {},
+    lualine_y = { progress, column },
     lualine_z = { 'mode' },
   },
   filetypes = { 'oil' },
 }
-
-vim.pack.add({ 'https://github.com/nvim-lualine/lualine.nvim' })
 
 require('lualine').setup({
   options = {
@@ -106,8 +106,8 @@ require('lualine').setup({
         fmt = hide(101),
       },
     },
-    lualine_x = { progress },
-    lualine_y = { column },
+    lualine_x = {},
+    lualine_y = { progress, column },
     lualine_z = { { 'mode', fmt = truncateToFirstChar(101) } },
   },
   inactive_winbar = {
