@@ -219,6 +219,14 @@ local servers = {
             '**/vendor/_laravel_idea/**',
           },
         },
+        -- NOTE: uncoment below and use `:lua vim.lsp.codelens.enable()`
+        -- codeLens = {
+        --   references = { enable = true },
+        --   implementations = { enable = true },
+        --   usages = { enable = true },
+        --   overrides = { enable = true },
+        --   parent = { enable = true },
+        -- },
       },
     },
   },
