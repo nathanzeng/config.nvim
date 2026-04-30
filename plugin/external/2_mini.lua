@@ -27,14 +27,14 @@ vim.schedule(function()
   local hipatterns = require('mini.hipatterns')
   hipatterns.setup({
     highlighters = {
-      fixme = { pattern = '.FIXME:', group = 'MiniHipatternsFixme' },
-      fixme_line = { pattern = '.FIXME:().*()', group = 'DiagnosticError' },
-      hack = { pattern = '.HACK:', group = 'MiniHipatternsFixme' },
-      hack_line = { pattern = '.HACK:().*()', group = 'DiagnosticError' },
-      todo = { pattern = '.TODO:', group = 'MiniHipatternsHack' },
-      todo_line = { pattern = 'TODO:().*()', group = 'DiagnosticWarn' },
-      note = { pattern = '.NOTE:', group = 'MiniHipatternsTodo' },
-      note_line = { pattern = '.NOTE:().*()', group = 'DiagnosticHint' },
+      fixme = { pattern = ' FIXME:', group = 'MiniHipatternsFixme' },
+      fixme_line = { pattern = ' FIXME:().*()', group = 'DiagnosticError' },
+      hack = { pattern = ' HACK:', group = 'MiniHipatternsFixme' },
+      hack_line = { pattern = ' HACK:().*()', group = 'DiagnosticError' },
+      todo = { pattern = ' TODO:', group = 'MiniHipatternsHack' },
+      todo_line = { pattern = ' TODO:().*()', group = 'DiagnosticWarn' },
+      note = { pattern = ' NOTE:', group = 'MiniHipatternsTodo' },
+      note_line = { pattern = ' NOTE:().*()', group = 'DiagnosticHint' },
       hex_color = hipatterns.gen_highlighter.hex_color(),
     },
   })
