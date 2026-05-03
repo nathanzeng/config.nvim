@@ -62,3 +62,12 @@ require('blink.cmp').setup({
     enabled = false,
   },
 })
+
+-- Indent lines and text object
+vim.pack.add({ 'https://github.com/saghen/blink.indent' })
+require('blink.indent').setup({
+  -- No need to see all the indent lines
+  static = { enabled = false },
+  -- Color all the indent lines the same
+  scope = { highlights = { 'BlinkIndent' } },
+})
