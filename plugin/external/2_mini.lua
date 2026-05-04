@@ -38,6 +38,11 @@ vim.schedule(function()
       hex_color = hipatterns.gen_highlighter.hex_color(),
     },
   })
+
+  -- TODO: for comparison testing, remove
+  -- require('mini.indentscope').setup({
+  --   draw = { delay = 0, animation = require('mini.indentscope').gen_animation.none() },
+  -- })
 end)
 
 -- Icons and mock the nvim-tree one

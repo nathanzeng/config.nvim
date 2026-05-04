@@ -56,10 +56,10 @@ require('blink.cmp').setup({
 })
 
 -- Indent lines and text object
-vim.pack.add({ 'https://github.com/saghen/blink.indent' })
+vim.pack.add({ { src = 'https://github.com/nathanzeng/blink.indent', version = 'indent-at-cursor' } })
 require('blink.indent').setup({
   -- No need to see all the indent lines
   static = { enabled = false },
-  -- Color all the indent lines the same
-  scope = { highlights = { 'BlinkIndent' } },
+  -- Center the pipe, color all the indent lines the same
+  scope = { char = '┃', highlights = { 'BlinkIndent' } },
 })

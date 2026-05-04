@@ -6,8 +6,9 @@
       "version": "'v1.10.2'"
     },
     "blink.indent": {
-      "rev": "9c80820ca77218a8d28e70075d6f44a1609911fe",
-      "src": "https://github.com/saghen/blink.indent"
+      "rev": "2709ae67d1915cc2d57b3ea9912def69a85d32c3",
+      "src": "https://github.com/nathanzeng/blink.indent",
+      "version": "'indent-at-cursor'"
     },
     "conform.nvim": {
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
