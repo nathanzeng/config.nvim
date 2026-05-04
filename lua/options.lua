@@ -72,8 +72,10 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- Visual only controlling how wide tabs look
-vim.o.tabstop = 4
+-- These will get overridden by .editorconfig
+vim.o.expandtab = true -- Use spaces instead of tabs
+vim.o.shiftwidth = 2 -- Size of an indent
+vim.o.tabstop = 2 -- Number of spaces tabs count for
 
 -- Do not insert comments automatically with o and O
 vim.api.nvim_create_autocmd('FileType', {
