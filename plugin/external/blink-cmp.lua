@@ -61,5 +61,5 @@ require('blink.indent').setup({
   -- No need to see all the indent lines
   static = { enabled = false },
   -- Center the pipe, color all the indent lines the same
-  scope = { char = '┃', highlights = { 'BlinkIndent' } },
+  scope = { indent_at_cursor = true, char = '┃', highlights = { 'BlinkIndent' } },
 })
