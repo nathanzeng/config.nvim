@@ -6,7 +6,7 @@
       "version": "'v1.10.2'"
     },
     "blink.indent": {
-      "rev": "2709ae67d1915cc2d57b3ea9912def69a85d32c3",
+      "rev": "7e2c74d82b6542d331a17057f2a383e0366c8b31",
       "src": "https://github.com/nathanzeng/blink.indent",
       "version": "'indent-at-cursor'"
     },
