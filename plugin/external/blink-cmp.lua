@@ -56,7 +56,7 @@ require('blink.cmp').setup({
 })
 
 -- Indent lines and text object
-vim.pack.add({ { src = 'https://github.com/saghen/blink.indent', version = 'indent-at-cursor-v2' } })
+vim.pack.add({ 'https://github.com/saghen/blink.indent' })
 require('blink.indent').setup({
   -- No need to see all the indent lines
   static = { enabled = false },
