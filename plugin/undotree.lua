@@ -7,5 +7,5 @@ vim.schedule(function()
 
   vim.keymap.set('n', '<leader>u', function()
     require('undotree').open({ command = 'vnew' })
-  end)
+  end, { desc = '[u]ndo tree' })
 end)

@@ -6,4 +6,4 @@ vim.g['test#neovim#term_position'] = 'vert'
 
 vim.keymap.set('n', '<leader>t', '<CMD>TestNearest<CR>', { desc = '[t]est nearest' })
 vim.keymap.set('n', '<leader>td', '<CMD>TestNearest XDEBUG_SESSION=1<CR>', { desc = '[t]est [d]ebug nearest' })
-vim.keymap.set('n', '<leader>T', '<CMD>TestFile<CR>', { desc = '[t]est [f]ile' })
+vim.keymap.set('n', '<leader>T', '<CMD>TestFile<CR>', { desc = '[T]est buffer' })

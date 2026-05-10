@@ -41,7 +41,9 @@ vim.schedule(function()
 
   local miniclue = require('mini.clue')
   miniclue.setup({
-    delay = 600,
+    window = {
+      config = { width = 50 },
+    },
     triggers = {
       -- Leader triggers
       { mode = { 'n', 'x' }, keys = '<Leader>' },
@@ -72,7 +74,8 @@ vim.schedule(function()
     },
 
     clues = {
-      -- Enhance this by adding descriptions for <Leader> mapping groups
+      { mode = 'n', keys = '<Leader>l', desc = 'LSP' },
+      { mode = 'n', keys = '<Leader>f', desc = '[f]ind' },
       miniclue.gen_clues.square_brackets(),
       miniclue.gen_clues.builtin_completion(),
       miniclue.gen_clues.g(),
