@@ -36,9 +36,6 @@ require('gitsigns').setup({
       end
     end, { desc = 'Jump to previous git [c]hange' })
 
-    -- Actions
-    -- NOTE: I removed many actions I don't use
-
     -- Visual mode
     map('x', '<leader>gs', function()
       gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
@@ -51,7 +48,8 @@ require('gitsigns').setup({
     map('n', '<leader>gs', gitsigns.stage_hunk, { desc = '[s]tage hunk' })
     map('n', '<leader>gr', gitsigns.reset_hunk, { desc = '[r]eset hunk' })
     map('n', '<leader>gS', gitsigns.stage_buffer, { desc = '[S]tage buffer' })
-    map('n', '<leader>gR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
+    map('n', '<leader>gU', gitsigns.reset_buffer_index, { desc = '[U]nstage buffer' })
+    map('n', '<leader>gR', gitsigns.reset_buffer, { desc = '[R]eset buffer hunks' })
     map('n', '<leader>gp', gitsigns.preview_hunk, { desc = '[p]review hunk' })
     map('n', '<leader>gl', function()
       -- blame_line with the full commit message and hunk changes
