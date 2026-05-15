@@ -1,8 +1,3 @@
--- [[ Setting options ]]
--- See `:help vim.o`
--- For more options, you can see `:help option-list`
--- NOTE: Do not use `vim.opt` as it will be deprecated https://github.com/neovim/neovim/issues/20107
-
 -- 24 bit color
 vim.o.termguicolors = true
 
@@ -103,6 +98,3 @@ vim.o.winborder = 'rounded'
 
 -- I'm not really sure how I feel about this yet
 vim.o.swapfile = false
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
