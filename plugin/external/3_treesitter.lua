@@ -1,5 +1,18 @@
 vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter' })
 
+-- Using a fork that has support for \ and directive stuff
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'TSUpdate',
+  callback = function()
+    require('nvim-treesitter.parsers').graphql = {
+      install_info = {
+        url = 'https://github.com/11bit/tree-sitter-graphql',
+        revision = '951bde9fb3145b5f676204231e35f8b21d21f7b3',
+      },
+    }
+  end,
+})
+
 local filetypes = {
   'bash',
   'c',
@@ -35,9 +48,9 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = filetypes,
   callback = function(args)
     -- Blacklist: treesitter does not work for graphql with our lighthouse resolvers and whatnot
-    if args.match == 'graphql' then
-      return
-    end
+    -- if args.match == 'graphql' then
+    --   return
+    -- end
 
     vim.treesitter.start()
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
