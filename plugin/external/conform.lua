@@ -5,25 +5,16 @@ vim.schedule(function()
   })
 
   require('conform').setup({
-    -- notify_on_error = false,
-    format_on_save = function(bufnr)
-      -- My custom command for disabling autosave
+    format_on_save = function()
+      -- Custom command for disabling autosave
       if vim.g.disable_autoformat then
         return
       end
 
-      -- Disable "format_on_save lsp_fallback" for languages that don't
-      -- have a well standardized coding style. You can add additional
-      -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
-      if disable_filetypes[vim.bo[bufnr].filetype] then
-        return nil
-      else
-        return {
-          timeout_ms = 5000,
-          -- lsp_format = 'fallback',
-        }
-      end
+      return {
+        timeout_ms = 5000,
+        -- lsp_format = 'fallback',
+      }
     end,
     -- Formatters by file type
     -- Conform can also run multiple formatters sequentially
