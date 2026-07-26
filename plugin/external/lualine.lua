@@ -52,31 +52,6 @@ local function truncateToFirstChar(min_width)
   end
 end
 
--- Extension for oil
-local oil = {
-  winbar = {
-    lualine_a = {
-      function()
-        local oil = require('oil')
-        -- Directory relative to current working directory
-        local directory = vim.fn.fnamemodify(oil.get_current_dir(), ':.')
-
-        if directory == '' then
-          -- Only the tail (final directory) of the cwd
-          return '󰉋 ' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
-        else
-          return '󰙅 ' .. directory
-        end
-      end,
-    },
-    lualine_b = { { 'branch', icon = '' } },
-    lualine_x = {},
-    lualine_y = { progress, column },
-    lualine_z = { 'mode' },
-  },
-  filetypes = { 'oil' },
-}
-
 local function path()
   -- Cannot do just `:h` because buffers jumped to with LSP will display full path
   local dir = vim.fn.expand('%:p:.:h')
@@ -87,6 +62,35 @@ local function path()
     return dir
   end
 end
+
+local function dir_name()
+  local cwd = vim.uv.cwd()
+  if cwd == nil then
+    return 'error with uv cwd'
+  end
+
+  local relative_path = vim.fn.expand('%:.')
+
+  if relative_path == cwd then
+    -- Only the tail (final directory) of the cwd
+    return '󰉋 ' .. vim.fn.fnamemodify(cwd, ':t')
+  else
+    return '󰙅 ' .. relative_path
+  end
+end
+
+-- Extension for dir.lua
+local dir = {
+  winbar = {
+    lualine_a = {
+      dir_name,
+    },
+    lualine_b = { { 'branch', icon = '' } },
+    lualine_x = {},
+    lualine_y = { progress, column },
+  },
+  filetypes = { 'directory' },
+}
 
 require('lualine').setup({
   options = {
@@ -113,5 +117,5 @@ require('lualine').setup({
   },
   sections = {},
   inactive_sections = {},
-  extensions = { oil },
+  extensions = { dir },
 })
