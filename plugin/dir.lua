@@ -52,7 +52,7 @@ api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', 'dd', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
-      local confirm_msg = 'Delete ' .. filename
+      local confirm_msg = 'Delete: ' .. filename
       local confirm = vim.fn.confirm(confirm_msg, '&Yes\n&No\n&Cancel')
 
       if confirm == 1 then
@@ -82,7 +82,7 @@ api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', 'm', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
-      vim.ui.input({ prompt = 'Destination: ' }, function(input)
+      vim.ui.input({ prompt = 'Move to: ' }, function(input)
         if input == nil then
           return
         end
@@ -112,7 +112,7 @@ api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', 'c', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
-      vim.ui.input({ prompt = 'Destination: ' }, function(input)
+      vim.ui.input({ prompt = 'Copy to: ' }, function(input)
         if input == nil then
           return
         end
