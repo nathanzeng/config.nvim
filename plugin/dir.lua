@@ -7,11 +7,18 @@ vim.keymap.set('n', '_', '<CMD>e .<CR>', { desc = 'Open CWD' })
 api.nvim_create_autocmd('FileType', {
   group = api.nvim_create_augroup('dir_nathan'),
   pattern = 'directory',
-  callback = function()
+  callback = function(args)
+    -- Delete dir buffers after we leave them
     vim.bo.bufhidden = 'wipe'
     vim.opt_local.foldcolumn = '0'
+    -- Put icons in the status column
     vim.opt_local.numberwidth = 5
     vim.opt_local.statuscolumn = "%l %{%v:lua.require'dir_icons'.directory()%}"
+
+    -- AI gave this to me to make entries beginning with "." have comment hl
+    vim.api.nvim_buf_call(args.buf, function()
+      vim.cmd([[syntax match Comment /^\..*$/]])
+    end)
 
     local dir_name = api.nvim_buf_get_name(0)
 
