@@ -83,6 +83,23 @@ vim.schedule(function()
       miniclue.gen_clues.z(),
     },
   })
+
+  require('mini.move').setup({
+    -- Module mappings. Use `''` (empty string) to disable one.
+    mappings = {
+      -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+      left = '<C-h>',
+      right = '<C-l>',
+      down = '<C-j>',
+      up = '<C-k>',
+
+      -- Move current line in Normal mode
+      line_left = '',
+      line_right = '',
+      line_down = '',
+      line_up = '',
+    },
+  })
 end)
 
 -- Icons and mock the nvim-tree one
@@ -108,20 +125,3 @@ require('mini.notify').setup({
 -- Nightfox defaults to having floating windows darker
 vim.api.nvim_set_hl(0, 'MiniNotifyNormal', { link = 'Normal' })
 vim.notify = MiniNotify.make_notify()
-
-require('mini.move').setup({
-  -- Module mappings. Use `''` (empty string) to disable one.
-  mappings = {
-    -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
-    left = '<C-h>',
-    right = '<C-l>',
-    down = '<C-j>',
-    up = '<C-k>',
-
-    -- Move current line in Normal mode
-    line_left = '',
-    line_right = '',
-    line_down = '',
-    line_up = '',
-  },
-})
