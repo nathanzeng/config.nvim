@@ -79,6 +79,21 @@ api.nvim_create_autocmd('FileType', {
       end)
     end, { desc = 'Move dir entry under cursor', buf = 0 })
 
+    vim.keymap.set('n', 'r', function()
+      local filename = dir_name .. api.nvim_get_current_line()
+
+      vim.ui.input({ prompt = 'Rename: ' }, function(input)
+        if input == nil then
+          return
+        end
+
+        vim.system({ 'mv', filename, dir_name .. input }):wait(TIMEOUT)
+        vim.cmd.normal({ args = { 'R' } })
+        -- Brings the cursor to the newly renamed entry
+        vim.fn.search('\\V' .. input)
+      end)
+    end, { desc = 'Rename entry under cursor', buf = 0 })
+
     vim.keymap.set('n', 'c', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
