@@ -1,11 +1,45 @@
 local api = vim.api
 local TIMEOUT = 3000
+local dir_init_buf = nil
+local augroup = api.nvim_create_augroup('dir_nathan')
 
-vim.keymap.set('n', '_', '<CMD>e .<CR>', { desc = 'Open CWD' })
+-- NOTE: this pattern won't work for `:e some/arbitrary/path`
+local function set_init_buf()
+  if vim.bo.filetype ~= 'directory' then
+    dir_init_buf = api.nvim_get_current_buf()
+  end
+end
+
+local function return_to_init_buf()
+  if dir_init_buf == nil then
+    vim.notify('dir oopsie', vim.log.levels.ERROR)
+    return
+  end
+  api.nvim_set_current_buf(dir_init_buf)
+end
+
+local function hl_line_like_yank()
+  local ns = api.nvim_create_namespace('dir_nathan.yank_line')
+  local row = api.nvim_win_get_cursor(0)[1] - 1
+
+  vim.hl.range(0, ns, 'IncSearch', { row, 0 }, { row, -1 }, {
+    timeout = 150,
+  })
+end
+
+vim.keymap.set('n', '_', function()
+  set_init_buf()
+  vim.cmd.edit('.')
+end, { desc = 'Open CWD' })
+
+vim.keymap.set('n', '-', function()
+  set_init_buf()
+  return '<Plug>(nvim-dir-up)'
+end, { expr = true, desc = 'Open parent directory' })
 
 -- TODO: error handling on every vim.system call
 api.nvim_create_autocmd('FileType', {
-  group = api.nvim_create_augroup('dir_nathan'),
+  group = augroup,
   pattern = 'directory',
   callback = function(args)
     -- Delete dir buffers after we leave them
@@ -24,7 +58,7 @@ api.nvim_create_autocmd('FileType', {
 
     -- Close
     vim.keymap.set('n', '<C-c>', function()
-      MiniBufremove.delete()
+      return_to_init_buf()
     end, { desc = 'Close dir buffer', buf = 0 })
 
     -- Add entry
@@ -61,15 +95,6 @@ api.nvim_create_autocmd('FileType', {
 
       vim.cmd.normal({ args = { 'R' } })
     end, { desc = 'Delete dir entry', buf = 0 })
-
-    local function hl_line_like_yank()
-      local ns = api.nvim_create_namespace('dir_nathan.yank_line')
-      local row = api.nvim_win_get_cursor(0)[1] - 1
-
-      vim.hl.range(0, ns, 'IncSearch', { row, 0 }, { row, -1 }, {
-        timeout = 150,
-      })
-    end
 
     -- Yank entry
     vim.keymap.set('n', 'yy', function()
@@ -137,7 +162,7 @@ api.nvim_create_autocmd('FileType', {
       vim.cmd.vsplit()
       vim.cmd([[execute "normal \<CR>"]])
       vim.cmd.wincmd('p')
-      MiniBufremove.delete()
+      return_to_init_buf()
       vim.cmd.wincmd('p')
     end, { desc = 'Open dir entry in vertical split', buf = 0 })
 
