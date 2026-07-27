@@ -14,10 +14,12 @@ api.nvim_create_autocmd('FileType', {
 
     local dir_name = api.nvim_buf_get_name(0)
 
+    -- Close
     vim.keymap.set('n', '<C-c>', function()
       MiniBufremove.delete()
     end, { desc = 'Close dir buffer', buf = 0 })
 
+    -- Add entry
     vim.keymap.set('n', 'o', function()
       vim.ui.input({ prompt = 'Filename: ' }, function(input)
         if input == nil then
@@ -38,6 +40,7 @@ api.nvim_create_autocmd('FileType', {
       end)
     end, { desc = 'Create dir entry', buf = 0 })
 
+    -- Delete entry
     vim.keymap.set('n', 'dd', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
@@ -52,6 +55,7 @@ api.nvim_create_autocmd('FileType', {
     end, { desc = 'Delete dir entry', buf = 0 })
 
     -- TODO: would be nice if these yank maps highlighted like normal
+    -- Yank entry
     vim.keymap.set('n', 'yy', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
@@ -66,6 +70,7 @@ api.nvim_create_autocmd('FileType', {
       vim.notify('Full path yanked to clipboard')
     end, { desc = 'Yank dir entry full path to clipboard', buf = 0 })
 
+    -- Move entry
     vim.keymap.set('n', 'm', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
@@ -79,6 +84,7 @@ api.nvim_create_autocmd('FileType', {
       end)
     end, { desc = 'Move dir entry under cursor', buf = 0 })
 
+    -- Rename entry
     vim.keymap.set('n', 'r', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
@@ -94,6 +100,7 @@ api.nvim_create_autocmd('FileType', {
       end)
     end, { desc = 'Rename entry under cursor', buf = 0 })
 
+    -- Copy entry
     vim.keymap.set('n', 'c', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
@@ -107,6 +114,7 @@ api.nvim_create_autocmd('FileType', {
       end)
     end, { desc = 'Copy dir entry under cursor', buf = 0 })
 
+    -- Open entry in vsplit
     vim.keymap.set('n', '<C-v>', function()
       vim.cmd.vsplit()
       vim.cmd([[execute "normal \<CR>"]])
@@ -115,6 +123,7 @@ api.nvim_create_autocmd('FileType', {
       vim.cmd.wincmd('p')
     end, { desc = 'Open dir entry in vertical split', buf = 0 })
 
+    -- Telescope stuff
     vim.keymap.set('n', '<leader>ff', function()
       require('telescope.builtin').find_files({
         cwd = dir_name,
