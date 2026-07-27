@@ -62,11 +62,20 @@ api.nvim_create_autocmd('FileType', {
       vim.cmd.normal({ args = { 'R' } })
     end, { desc = 'Delete dir entry', buf = 0 })
 
-    -- TODO: would be nice if these yank maps highlighted like normal
+    local function hl_line_like_yank()
+      local ns = api.nvim_create_namespace('dir_nathan.yank_line')
+      local row = api.nvim_win_get_cursor(0)[1] - 1
+
+      vim.hl.range(0, ns, 'IncSearch', { row, 0 }, { row, -1 }, {
+        timeout = 150,
+      })
+    end
+
     -- Yank entry
     vim.keymap.set('n', 'yy', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
+      hl_line_like_yank()
       vim.fn.setreg('', filename)
       vim.notify('Full path yanked')
     end, { desc = 'Yank dir entry full path', buf = 0 })
@@ -74,6 +83,7 @@ api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', '<leader>yy', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
+      hl_line_like_yank()
       vim.fn.setreg('+', filename)
       vim.notify('Full path yanked to clipboard')
     end, { desc = 'Yank dir entry full path to clipboard', buf = 0 })
