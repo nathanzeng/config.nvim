@@ -43,7 +43,7 @@ vim.api.nvim_set_hl(0, 'GreenCursor', { bg = '#a3be8c' })
 -- See :h guicursor
 -- Block cursor in insert-like modes, underline for replace and operator pending
 -- Change color for insert/visual
-vim.o.guicursor = 'i-t-c:block-GreenCursor,v:block-BlueCursor,r-o:hor20'
+vim.o.guicursor = 'i-t:block-GreenCursor,v:block-BlueCursor,r-o:hor20'
 
 -- Showkeys
 -- vim.pack.add({ 'https://github.com/NvChad/showkeys' })
