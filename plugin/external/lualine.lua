@@ -89,6 +89,7 @@ local dir = {
     lualine_b = { { 'branch', icon = '' } },
     lualine_x = {},
     lualine_y = { progress, column },
+    lualine_z = { 'mode' },
   },
   filetypes = { 'directory' },
 }
