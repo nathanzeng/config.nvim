@@ -88,7 +88,7 @@ api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', 'r', function()
       local filename = dir_name .. api.nvim_get_current_line()
 
-      vim.ui.input({ prompt = 'Rename: ' }, function(input)
+      vim.ui.input({ prompt = 'Rename: ', default = api.nvim_get_current_line() }, function(input)
         if input == nil then
           return
         end
