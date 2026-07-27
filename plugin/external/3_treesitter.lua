@@ -45,7 +45,7 @@ local filetypes = {
 require('nvim-treesitter').install(filetypes)
 
 vim.api.nvim_create_autocmd('FileType', {
-  group = vim.api.nvim_create_augroup('treesitter', { clear = true }),
+  group = vim.api.nvim_create_augroup('treesitter'),
   pattern = filetypes,
   callback = function(args)
     vim.treesitter.start()

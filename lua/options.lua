@@ -48,7 +48,7 @@ vim.o.tabstop = 2 -- Number of spaces tabs count for
 
 -- Do not insert comments automatically with o and O
 vim.api.nvim_create_autocmd('FileType', {
-  group = vim.api.nvim_create_augroup('options', { clear = true }),
+  group = vim.api.nvim_create_augroup('options'),
   desc = 'Do not insert comments automatically with o and O',
   pattern = '*',
   callback = function()
