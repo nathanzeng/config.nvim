@@ -29,7 +29,7 @@ api.nvim_create_autocmd('FileType', {
 
     -- Add entry
     vim.keymap.set('n', 'o', function()
-      vim.ui.input({ prompt = 'Add entry: ' }, function(input)
+      vim.ui.input({ prompt = 'Add: ' }, function(input)
         if input == nil then
           return
         end
