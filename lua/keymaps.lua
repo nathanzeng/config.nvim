@@ -64,7 +64,12 @@ vim.keymap.set('n', '<C-up>', '<C-w>-', { desc = 'Decrease window height' })
 vim.keymap.set('n', '<C-down>', '<C-w>+', { desc = 'Increase window height' })
 
 -- [[ Diagnostics ]]
-vim.keymap.set('n', '<leader>D', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix list, for buffer' })
+vim.keymap.set(
+  'n',
+  '<leader>D',
+  vim.diagnostic.setloclist,
+  { desc = 'Diagnostic quickfix list, for buffer' }
+)
 vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.open_float()
 end, { desc = '[d]iagnostic window' })
