@@ -10,7 +10,7 @@ api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.bo.bufhidden = 'wipe'
     vim.opt_local.foldcolumn = '0'
-    vim.opt_local.statuscolumn = "%l %{%v:lua.require'dir'.directory()%}"
+    vim.opt_local.statuscolumn = "%l %{%v:lua.require'dir_icons'.directory()%}"
 
     local dir_name = api.nvim_buf_get_name(0)
 
