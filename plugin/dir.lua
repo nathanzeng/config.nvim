@@ -117,7 +117,7 @@ api.nvim_create_autocmd('FileType', {
           return
         end
 
-        vim.system({ 'cp', filename, input, '-r' }):wait(TIMEOUT)
+        vim.system({ 'cp', '-R', filename, input }):wait(TIMEOUT)
         vim.cmd.normal({ args = { 'R' } })
       end)
     end, { desc = 'Copy dir entry under cursor', buf = 0 })
