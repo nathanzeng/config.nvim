@@ -37,7 +37,6 @@ vim.keymap.set('n', '-', function()
   return '<Plug>(nvim-dir-up)'
 end, { expr = true, desc = 'Open parent directory' })
 
--- TODO: error handling on every vim.system call
 api.nvim_create_autocmd('FileType', {
   group = augroup,
   pattern = 'directory',
@@ -71,9 +70,17 @@ api.nvim_create_autocmd('FileType', {
 
         -- Either touch or mkdir based on presence of /
         if vim.endswith(abs_filename, '/') then
-          vim.system({ 'mkdir', abs_filename }):wait(TIMEOUT)
+          local obj = vim.system({ 'mkdir', abs_filename }, { text = true }):wait(TIMEOUT)
+          if obj.code ~= 0 then
+            error('System error: ' .. (obj.stderr or 'nil'))
+            return
+          end
         else
-          vim.system({ 'touch', abs_filename }):wait(TIMEOUT)
+          local obj = vim.system({ 'touch', abs_filename }, { text = true }):wait(TIMEOUT)
+          if obj.code ~= 0 then
+            error('System error: ' .. (obj.stderr or 'nil'))
+            return
+          end
         end
 
         vim.cmd.normal({ args = { 'R' } })
@@ -90,7 +97,11 @@ api.nvim_create_autocmd('FileType', {
       local confirm = vim.fn.confirm(confirm_msg, '&Yes\n&No\n&Cancel')
 
       if confirm == 1 then
-        vim.system({ 'rm', '-r', filename }):wait(TIMEOUT)
+        local obj = vim.system({ 'rm', '-r', filename }, { text = true }):wait(TIMEOUT)
+        if obj.code ~= 0 then
+          error('System error: ' .. (obj.stderr or 'nil'))
+          return
+        end
       end
 
       vim.cmd.normal({ args = { 'R' } })
@@ -122,7 +133,12 @@ api.nvim_create_autocmd('FileType', {
           return
         end
 
-        vim.system({ 'mv', filename, input }):wait(TIMEOUT)
+        local obj = vim.system({ 'mv', filename, input }, { text = true }):wait(TIMEOUT)
+        if obj.code ~= 0 then
+          error('System error: ' .. (obj.stderr or 'nil'))
+          return
+        end
+
         vim.cmd.normal({ args = { 'R' } })
       end)
     end, { desc = 'Move dir entry under cursor', buf = 0 })
@@ -136,7 +152,12 @@ api.nvim_create_autocmd('FileType', {
           return
         end
 
-        vim.system({ 'mv', filename, dir_name .. input }):wait(TIMEOUT)
+        local obj = vim.system({ 'mv', filename, dir_name .. input }, { text = true }):wait(TIMEOUT)
+        if obj.code ~= 0 then
+          error('System error: ' .. (obj.stderr or 'nil'))
+          return
+        end
+
         vim.cmd.normal({ args = { 'R' } })
         -- Brings the cursor to the newly renamed entry
         vim.fn.search('\\V' .. input)
@@ -152,7 +173,12 @@ api.nvim_create_autocmd('FileType', {
           return
         end
 
-        vim.system({ 'cp', '-R', filename, input }):wait(TIMEOUT)
+        local obj = vim.system({ 'cp', '-R', filename, input }, { text = true }):wait(TIMEOUT)
+        if obj.code ~= 0 then
+          error('System error: ' .. (obj.stderr or 'nil'))
+          return
+        end
+
         vim.cmd.normal({ args = { 'R' } })
       end)
     end, { desc = 'Copy dir entry under cursor', buf = 0 })
