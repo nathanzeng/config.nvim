@@ -2,7 +2,6 @@ local api = vim.api
 local TIMEOUT = 3000
 local dir_init_buf = nil
 local augroup = api.nvim_create_augroup('dir_nathan')
-local default_foldcolumn = vim.o.foldcolumn
 local default_numberwidth = vim.o.numberwidth
 local default_statuscolumn = vim.o.statuscolumn
 
@@ -44,11 +43,9 @@ end, { expr = true, desc = 'Open parent directory' })
 api.nvim_create_autocmd('BufEnter', {
   callback = function(args)
     if vim.bo[args.buf].filetype == 'directory' then
-      vim.wo.foldcolumn = '0'
       vim.wo.numberwidth = 5
       vim.wo.statuscolumn = "%l %{%v:lua.require'dir_icons'.directory()%}"
     else
-      vim.wo.foldcolumn = default_foldcolumn
       vim.wo.numberwidth = default_numberwidth
       vim.wo.statuscolumn = default_statuscolumn
     end
