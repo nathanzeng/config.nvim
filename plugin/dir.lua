@@ -40,6 +40,7 @@ vim.keymap.set('n', '-', function()
   return '<Plug>(nvim-dir-up)'
 end, { expr = true, desc = 'Open parent directory' })
 
+-- Window-local state that depends on currently displayed buffer
 api.nvim_create_autocmd('BufEnter', {
   callback = function(args)
     if vim.bo[args.buf].filetype == 'directory' then
