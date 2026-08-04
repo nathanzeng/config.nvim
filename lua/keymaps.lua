@@ -1,5 +1,5 @@
 vim.keymap.set('n', '<leader>w', '<cmd>update<CR>', { desc = '[w]rite' })
-vim.keymap.set('n', '<leader>x', '<cmd>xa!<CR>', { desc = 'Quit [x]a!' })
+vim.keymap.set('n', '<leader>x', '<cmd>qa<CR>', { desc = 'Quit' })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- j and k move by screen lines when no count prefix
