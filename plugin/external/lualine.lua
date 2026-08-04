@@ -21,6 +21,7 @@ local normalTheme = {
   end,
   b = { fg = colors.nord7, bg = colors.nord1 },
   c = { fg = colors.nord7, bg = colors.nord3 },
+  z = { fg = colors.nord1, bg = colors.nord8, gui = 'bold' },
 }
 
 local custom_nord = {
