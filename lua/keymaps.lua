@@ -13,11 +13,18 @@ vim.keymap.set({ 'n', 'x', 'o' }, 'H', '^', { desc = 'Go to first non-blank char
 -- Enter and Shift+Enter to get new line below and above without entering insert mode
 vim.keymap.set('n', '<CR>', 'o<Esc>')
 vim.keymap.set('n', '<S-CR>', 'O<Esc>')
--- Undo the keybind for qf buffers
+
+-- Revert the <CR> mapping in a couple places
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'qf' },
-  callback = function(ev)
-    vim.keymap.set('n', '<CR>', '<CR>', { buf = ev.buf })
+  callback = function()
+    vim.keymap.set('n', '<CR>', '<CR>', { buffer = true })
+  end,
+})
+vim.api.nvim_create_autocmd('CmdwinEnter', {
+  pattern = { '*' },
+  callback = function()
+    vim.keymap.set('n', '<CR>', '<CR>', { buffer = true })
   end,
 })
 
