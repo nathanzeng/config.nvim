@@ -30,9 +30,7 @@ local custom_nord = {
   visual = normalTheme,
   replace = normalTheme,
   command = normalTheme,
-  inactive = {
-    c = { fg = colors.nord7, bg = colors.nord3 },
-  },
+  inactive = normalTheme,
 }
 
 local function progress()
