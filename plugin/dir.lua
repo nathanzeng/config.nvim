@@ -1,24 +1,8 @@
 local api = vim.api
 local TIMEOUT = 3000
-local dir_init_buf = nil
 local augroup = api.nvim_create_augroup('dir_nathan')
 local default_numberwidth = vim.o.numberwidth
 local default_statuscolumn = vim.o.statuscolumn
-
--- NOTE: this pattern won't work for `:e some/arbitrary/path`
-local function set_init_buf()
-  if vim.bo.filetype ~= 'directory' then
-    dir_init_buf = api.nvim_get_current_buf()
-  end
-end
-
-local function return_to_init_buf()
-  if dir_init_buf == nil then
-    vim.notify('dir oopsie', vim.log.levels.ERROR)
-    return
-  end
-  api.nvim_set_current_buf(dir_init_buf)
-end
 
 local function hl_line_like_yank()
   local ns = api.nvim_create_namespace('dir_nathan.yank_line')
@@ -30,14 +14,8 @@ local function hl_line_like_yank()
 end
 
 vim.keymap.set('n', '_', function()
-  set_init_buf()
   vim.cmd.edit('.')
 end, { desc = 'Open CWD' })
-
-vim.keymap.set('n', '-', function()
-  set_init_buf()
-  return '<Plug>(nvim-dir-up)'
-end, { expr = true, desc = 'Open parent directory' })
 
 -- Window-local state that depends on currently displayed buffer
 api.nvim_create_autocmd('BufEnter', {
@@ -65,11 +43,6 @@ api.nvim_create_autocmd('FileType', {
     end)
 
     local dir_name = api.nvim_buf_get_name(0)
-
-    -- Close
-    vim.keymap.set('n', '<C-c>', function()
-      return_to_init_buf()
-    end, { desc = 'Close dir buffer', buf = 0 })
 
     -- Add entry
     vim.keymap.set('n', 'o', function()
@@ -199,7 +172,7 @@ api.nvim_create_autocmd('FileType', {
       vim.cmd.vsplit()
       vim.cmd([[execute "normal \<CR>"]])
       vim.cmd.wincmd('p')
-      return_to_init_buf()
+      vim.cmd.edit('#')
       vim.cmd.wincmd('p')
     end, { desc = 'Open dir entry in vertical split', buf = 0 })
 
