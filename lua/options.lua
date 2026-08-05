@@ -16,6 +16,11 @@ vim.o.ruler = false
 -- Show partial command flickers j and k when scrolling
 vim.o.showcmd = false
 
+-- Sync clipboard between OS and Neovim.
+vim.schedule(function()
+  vim.o.clipboard = 'unnamedplus'
+end)
+
 -- Only highlight the cursorline number
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'number'

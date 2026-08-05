@@ -39,11 +39,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', 'q', '<cmd>hide<CR>', { desc = '[q]uit window' })
 vim.keymap.set('n', '<leader>q', 'q', { desc = 'macro' })
 
--- Paste and yank to system clipboard
-vim.keymap.set({ 'n', 'x' }, '<leader>p', '"+p', { desc = '[p]aste from system clipboard' })
-vim.keymap.set({ 'n', 'x' }, '<leader>P', '"+P', { desc = '[P]aste from system clipboard' })
-vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { desc = '[y]ank into system clipboard' })
-vim.keymap.set('n', '<leader>Y', '"+y$', { desc = '[Y]ank into system clipboard' })
 -- Paste does not clobber default register with deleted text (visual mode)
 -- See `:h v_P` and `:h v_p`
 vim.keymap.set('x', 'p', 'P')
