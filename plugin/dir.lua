@@ -101,14 +101,6 @@ api.nvim_create_autocmd('FileType', {
       local filename = dir_name .. api.nvim_get_current_line()
 
       hl_line_like_yank()
-      vim.fn.setreg('', filename)
-      vim.notify('Full path yanked')
-    end, { desc = 'Yank dir entry full path', buf = 0 })
-
-    vim.keymap.set('n', '<leader>yy', function()
-      local filename = dir_name .. api.nvim_get_current_line()
-
-      hl_line_like_yank()
       vim.fn.setreg('+', filename)
       vim.notify('Full path yanked to clipboard')
     end, { desc = 'Yank dir entry full path to clipboard', buf = 0 })
