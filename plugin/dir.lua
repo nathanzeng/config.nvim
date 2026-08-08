@@ -44,6 +44,11 @@ api.nvim_create_autocmd('FileType', {
 
     local dir_name = api.nvim_buf_get_name(0)
 
+    -- Close
+    vim.keymap.set('n', '<C-c>', function()
+      vim.cmd.edit('#')
+    end, { desc = 'Close dir buffer', buf = 0 })
+
     -- Add entry
     vim.keymap.set('n', 'o', function()
       vim.ui.input({ prompt = 'Add: ' }, function(input)
