@@ -14,12 +14,12 @@ local function hl_line_like_yank()
 end
 
 vim.keymap.set('n', '_', function()
-  vim.cmd.edit(vim.api.nvim_cmd({
+  vim.api.nvim_cmd({
     cmd = 'edit',
     args = { vim.fn.getcwd(-1, -1, -1) },
     mods = { keepalt = vim.b.nvim_dir ~= nil },
     magic = { file = false, bar = false },
-  }, {}))
+  }, {})
 end, { desc = 'Open CWD' })
 
 -- Window-local state that depends on currently displayed buffer
