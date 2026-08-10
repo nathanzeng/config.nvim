@@ -14,7 +14,12 @@ local function hl_line_like_yank()
 end
 
 vim.keymap.set('n', '_', function()
-  vim.cmd.edit('.')
+  vim.cmd.edit(vim.api.nvim_cmd({
+    cmd = 'edit',
+    args = { vim.fn.getcwd(-1, -1, -1) },
+    mods = { keepalt = vim.b.nvim_dir ~= nil },
+    magic = { file = false, bar = false },
+  }, {}))
 end, { desc = 'Open CWD' })
 
 -- Window-local state that depends on currently displayed buffer
@@ -62,13 +67,11 @@ api.nvim_create_autocmd('FileType', {
           local obj = vim.system({ 'mkdir', abs_filename }, { text = true }):wait(TIMEOUT)
           if obj.code ~= 0 then
             error('System error: ' .. (obj.stderr or 'nil'))
-            return
           end
         else
           local obj = vim.system({ 'touch', abs_filename }, { text = true }):wait(TIMEOUT)
           if obj.code ~= 0 then
             error('System error: ' .. (obj.stderr or 'nil'))
-            return
           end
         end
 
@@ -89,7 +92,6 @@ api.nvim_create_autocmd('FileType', {
         local obj = vim.system({ 'rm', '-r', filename }, { text = true }):wait(TIMEOUT)
         if obj.code ~= 0 then
           error('System error: ' .. (obj.stderr or 'nil'))
-          return
         end
       end
 
@@ -117,7 +119,6 @@ api.nvim_create_autocmd('FileType', {
         local obj = vim.system({ 'mv', filename, input }, { text = true }):wait(TIMEOUT)
         if obj.code ~= 0 then
           error('System error: ' .. (obj.stderr or 'nil'))
-          return
         end
 
         vim.cmd.normal({ args = { 'R' } })
@@ -136,7 +137,6 @@ api.nvim_create_autocmd('FileType', {
         local obj = vim.system({ 'mv', filename, dir_name .. input }, { text = true }):wait(TIMEOUT)
         if obj.code ~= 0 then
           error('System error: ' .. (obj.stderr or 'nil'))
-          return
         end
 
         vim.cmd.normal({ args = { 'R' } })
@@ -157,7 +157,6 @@ api.nvim_create_autocmd('FileType', {
         local obj = vim.system({ 'cp', '-R', filename, input }, { text = true }):wait(TIMEOUT)
         if obj.code ~= 0 then
           error('System error: ' .. (obj.stderr or 'nil'))
-          return
         end
 
         vim.cmd.normal({ args = { 'R' } })
