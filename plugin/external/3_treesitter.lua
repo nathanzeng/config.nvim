@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Incremental selection
-vim.keymap.set({ 'n', 'x', 'o' }, '<up>', function()
+vim.keymap.set({ 'n', 'x', 'o' }, '<C-,>', function()
   if vim.treesitter.get_parser(nil, nil, { error = false }) then
     vim.treesitter.select('parent', vim.v.count1)
   else
@@ -65,7 +65,7 @@ vim.keymap.set({ 'n', 'x', 'o' }, '<up>', function()
   end
 end, { desc = 'Select parent (outer) node' })
 
-vim.keymap.set({ 'n', 'x', 'o' }, '<down>', function()
+vim.keymap.set({ 'n', 'x', 'o' }, '<C-.>', function()
   if vim.treesitter.get_parser(nil, nil, { error = false }) then
     vim.treesitter.select('child', vim.v.count1)
   else
