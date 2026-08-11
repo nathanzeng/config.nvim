@@ -36,5 +36,9 @@ local specs = {
 require('nightfox').setup({ specs = specs })
 vim.cmd.colorscheme('nordfox')
 
+-- Cursor color for visual, and never blinks
+vim.api.nvim_set_hl(0, 'VisualCursor', { bg = '#8cafd2' })
+vim.opt.guicursor:append('v:VisualCursor,a:blinkon0')
+
 -- Showkeys
 -- vim.pack.add({ 'https://github.com/NvChad/showkeys' })
