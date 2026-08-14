@@ -63,19 +63,14 @@ local function path()
 end
 
 local function dir_name()
-  local cwd = vim.uv.cwd()
-  if cwd == nil then
-    return 'error with uv cwd'
-  end
+  local global_cwd = vim.fn.getcwd(-1, -1, -1)
+  local buf_cwd = vim.fn.getcwd(-1, -1, 0)
+  local relpath = vim.fs.relpath(global_cwd, buf_cwd)
 
-  local name = vim.api.nvim_buf_get_name(0)
-  local name_without_slash = string.sub(name, 1, #name - 1)
-
-  if name_without_slash == cwd then
-    -- Only the tail (final directory) of the cwd
-    return '󰉋 ' .. vim.fn.fnamemodify(cwd, ':t')
+  if relpath == '.' then
+    return '󰉋 ' .. vim.fn.fnamemodify(global_cwd, ':t')
   else
-    return '󰙅 ' .. vim.fn.fnamemodify(name, ':.')
+    return '󰙅 ' .. relpath .. '/'
   end
 end
 
