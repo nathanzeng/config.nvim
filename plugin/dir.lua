@@ -17,6 +17,7 @@ vim.keymap.set('n', '_', '1-', { remap = true, desc = 'Open CWD' })
 
 -- Window-local state that depends on currently displayed buffer
 api.nvim_create_autocmd('BufEnter', {
+  group = augroup,
   callback = function(args)
     if vim.bo[args.buf].filetype == 'directory' then
       vim.wo.numberwidth = 5
@@ -177,5 +178,14 @@ api.nvim_create_autocmd('FileType', {
         cwd = dir_name,
       })
     end, { desc = 'Telescope find grep (scoped to dir)', buf = 0 })
+  end,
+})
+
+vim.api.nvim_create_autocmd('User', {
+  group = augroup,
+  pattern = 'DirReadPost',
+  callback = function()
+    -- Hide any entry named `.DS_Store`
+    vim.cmd([[silent keeppatterns g/^\.DS_Store/d _]])
   end,
 })
