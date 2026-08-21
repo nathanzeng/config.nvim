@@ -184,6 +184,8 @@ api.nvim_create_autocmd('FileType', {
         if input == nil then
           return
         end
+        -- Trailing slash changes behavior on macOs (copies dir contents instead of dir)
+        input = input:gsub('/$', '')
 
         local obj = vim.system({ 'cp', '-R', input, dir_name }, { text = true }):wait(TIMEOUT)
         if obj.code ~= 0 then
@@ -193,8 +195,7 @@ api.nvim_create_autocmd('FileType', {
         vim.cmd.normal({ args = { 'R' } })
 
         -- Brings the cursor to the new entry
-        local tail = input:gsub('/$', '')
-        tail = tail:match('([^/]+)$') or tail
+        local tail = input:match('([^/]+)$') or input
         vim.fn.search('\\V' .. tail)
       end)
     end, { desc = 'Copy dir entry under cursor', buf = 0 })
