@@ -2,3 +2,5 @@
 vim.pack.add({ 'https://codeberg.org/andyg/leap.nvim.git' })
 vim.keymap.set('n', [[\]], ',', { desc = 'Repeat latest f, t, F or T in opposite direction' })
 vim.keymap.set({ 'n', 'x', 'o' }, ',', '<Plug>(leap)')
+-- Disable the autojump to the first match
+require('leap').opts.safe_labels = ''
