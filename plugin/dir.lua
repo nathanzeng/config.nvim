@@ -119,6 +119,27 @@ api.nvim_create_autocmd('FileType', {
       end)
     end, { desc = 'Move dir entry under cursor', buf = 0 })
 
+    -- Move to current directory
+    vim.keymap.set('n', 'pm', function()
+      vim.ui.input({ prompt = 'Move from: ' }, function(input)
+        if input == nil then
+          return
+        end
+
+        local obj = vim.system({ 'mv', input, dir_name }, { text = true }):wait(TIMEOUT)
+        if obj.code ~= 0 then
+          error('System error: ' .. (obj.stderr or 'nil'))
+        end
+
+        vim.cmd.normal({ args = { 'R' } })
+
+        -- Brings the cursor to the new entry
+        local tail = input:gsub('/$', '')
+        tail = tail:match('([^/]+)$') or tail
+        vim.fn.search('\\V' .. tail)
+      end)
+    end, { desc = 'Move here from source', buf = 0 })
+
     -- Rename entry
     vim.keymap.set('n', 'r', function()
       local filename = dir_name .. api.nvim_get_current_line()
@@ -154,6 +175,27 @@ api.nvim_create_autocmd('FileType', {
         end
 
         vim.cmd.normal({ args = { 'R' } })
+      end)
+    end, { desc = 'Copy dir entry under cursor', buf = 0 })
+
+    -- Copy to current directory
+    vim.keymap.set('n', 'pc', function()
+      vim.ui.input({ prompt = 'Copy from: ' }, function(input)
+        if input == nil then
+          return
+        end
+
+        local obj = vim.system({ 'cp', '-R', input, dir_name }, { text = true }):wait(TIMEOUT)
+        if obj.code ~= 0 then
+          error('System error: ' .. (obj.stderr or 'nil'))
+        end
+
+        vim.cmd.normal({ args = { 'R' } })
+
+        -- Brings the cursor to the new entry
+        local tail = input:gsub('/$', '')
+        tail = tail:match('([^/]+)$') or tail
+        vim.fn.search('\\V' .. tail)
       end)
     end, { desc = 'Copy dir entry under cursor', buf = 0 })
 
