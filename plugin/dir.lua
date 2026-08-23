@@ -80,7 +80,7 @@ api.nvim_create_autocmd('FileType', {
       local filename = dir_name .. api.nvim_get_current_line()
 
       local confirm_msg = 'Delete: ' .. filename
-      local confirm = vim.fn.confirm(confirm_msg, '&Yes\n&No\n&Cancel')
+      local confirm = vim.fn.confirm(confirm_msg, '&yes\n&no\n&cancel')
 
       if confirm == 1 then
         local obj = vim.system({ 'rm', '-r', filename }, { text = true }):wait(TIMEOUT)
@@ -118,27 +118,6 @@ api.nvim_create_autocmd('FileType', {
         vim.cmd.normal({ args = { 'R' } })
       end)
     end, { desc = 'Move dir entry under cursor', buf = 0 })
-
-    -- Move to current directory
-    vim.keymap.set('n', 'pm', function()
-      vim.ui.input({ prompt = 'Move from: ' }, function(input)
-        if input == nil then
-          return
-        end
-
-        local obj = vim.system({ 'mv', input, dir_name }, { text = true }):wait(TIMEOUT)
-        if obj.code ~= 0 then
-          error('System error: ' .. (obj.stderr or 'nil'))
-        end
-
-        vim.cmd.normal({ args = { 'R' } })
-
-        -- Brings the cursor to the new entry
-        local tail = input:gsub('/$', '')
-        tail = tail:match('([^/]+)$') or tail
-        vim.fn.search('\\V' .. tail)
-      end)
-    end, { desc = 'Move here from source', buf = 0 })
 
     -- Rename entry
     vim.keymap.set('n', 'r', function()
@@ -178,27 +157,35 @@ api.nvim_create_autocmd('FileType', {
       end)
     end, { desc = 'Copy dir entry under cursor', buf = 0 })
 
-    -- Copy to current directory
-    vim.keymap.set('n', 'pc', function()
-      vim.ui.input({ prompt = 'Copy from: ' }, function(input)
-        if input == nil then
-          return
-        end
-        -- Trailing slash changes behavior on macOs (copies dir contents instead of dir)
-        input = input:gsub('/$', '')
+    -- Copy or move from destination ("p")
+    vim.keymap.set('n', 'p', function()
+      local clipboard = vim.fn.getreg('+')
+      -- Trailing slash changes cp behavior on macOs (copies dir contents instead of dir)
+      clipboard = clipboard:gsub('/$', '')
+      local confirm = vim.fn.confirm(clipboard, '&move\n&copy')
 
-        local obj = vim.system({ 'cp', '-R', input, dir_name }, { text = true }):wait(TIMEOUT)
+      if confirm == 1 then
+        local obj = vim.system({ 'mv', clipboard, dir_name }, { text = true }):wait(TIMEOUT)
         if obj.code ~= 0 then
           error('System error: ' .. (obj.stderr or 'nil'))
         end
 
+        -- Bring cursor to entry
         vim.cmd.normal({ args = { 'R' } })
-
-        -- Brings the cursor to the new entry
-        local tail = input:match('([^/]+)$') or input
+        local tail = clipboard:match('([^/]+)$') or clipboard
         vim.fn.search('\\V' .. tail)
-      end)
-    end, { desc = 'Copy dir entry under cursor', buf = 0 })
+      elseif confirm == 2 then
+        local obj = vim.system({ 'cp', '-R', clipboard, dir_name }, { text = true }):wait(TIMEOUT)
+        if obj.code ~= 0 then
+          error('System error: ' .. (obj.stderr or 'nil'))
+        end
+
+        -- Bring cursor to entry
+        vim.cmd.normal({ args = { 'R' } })
+        local tail = clipboard:match('([^/]+)$') or clipboard
+        vim.fn.search('\\V' .. tail)
+      end
+    end, { desc = 'Copy or move into current dir', buf = 0 })
 
     -- Open entry in vsplit
     vim.keymap.set('n', '<C-v>', function()
