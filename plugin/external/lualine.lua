@@ -33,13 +33,14 @@ local custom_nord = {
   inactive = normalTheme,
 }
 
-local function progress()
-  return ' ' .. vim.fn.line('.') .. '/' .. vim.api.nvim_buf_line_count(0)
-end
-
-local function column()
-  -- nf-fa-arrows_h
-  return ' ' .. vim.fn.col('.')
+local function curosr_pos()
+  return ' '
+    .. vim.fn.line('.')
+    .. '/'
+    .. vim.api.nvim_buf_line_count(0)
+    -- nf-fa-arrows_h
+    .. '   '
+    .. vim.fn.col('.')
 end
 
 local function truncateToFirstChar(min_width)
@@ -82,7 +83,7 @@ local dir = {
     },
     lualine_b = { { 'branch', icon = '' } },
     lualine_x = {},
-    lualine_y = { progress, column },
+    lualine_y = { curosr_pos },
     lualine_z = { 'mode' },
   },
   filetypes = { 'directory' },
@@ -109,12 +110,12 @@ require('lualine').setup({
     lualine_b = { 'diagnostics', 'diff', { 'branch', icon = '' } },
     lualine_c = { path },
     lualine_x = {},
-    lualine_y = { progress, column },
+    lualine_y = { curosr_pos },
     lualine_z = { { 'mode', fmt = truncateToFirstChar(101) } },
   },
   inactive_winbar = {
     lualine_c = { { 'filename', path = 1 } },
-    lualine_x = { progress },
+    lualine_x = { curosr_pos },
   },
   sections = {},
   inactive_sections = {},
