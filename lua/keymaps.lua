@@ -49,8 +49,8 @@ vim.keymap.set({ 'n', 'x' }, '<leader>op', '"0p', { desc = 'Paste from yank regi
 vim.keymap.set('i', '<C-l>', '<Esc>gUiw`]a', { desc = 'Caps [l]ock the word before cursor' })
 
 -- Restart neovim
-vim.keymap.set('n', '<leader>n', '<cmd>restart<CR>', { desc = '[n]eovim restart' })
-vim.keymap.set('n', '<leader>N', '<cmd>restart!<CR>', { desc = '[N]eovim restart!' })
+vim.keymap.set('n', '<leader>r', '<cmd>restart<CR>', { desc = '[r]estart' })
+vim.keymap.set('n', '<leader>R', '<cmd>restart!<CR>', { desc = '[R]estart!' })
 
 -- Window movement
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -67,13 +67,15 @@ vim.keymap.set('n', '<C-down>', '<C-w>+', { desc = 'Increase window height' })
 -- [[ Diagnostics ]]
 vim.keymap.set(
   'n',
-  '<leader>D',
+  '<leader>E',
   vim.diagnostic.setloclist,
   { desc = 'Diagnostic quickfix list, for buffer' }
 )
-vim.keymap.set('n', '<leader>d', function()
+vim.keymap.set('n', '<leader>e', function()
   vim.diagnostic.open_float()
-end, { desc = '[d]iagnostic window' })
+end, { desc = '[e]rror diagnostic window' })
+vim.keymap.set('n', ']e', ']d', { desc = 'Jump to next [e]rror diagnostic', remap = true })
+vim.keymap.set('n', '[e', '[d', { desc = 'Jump to next [e]rror diagnostic', remap = true })
 
 -- [[ Spell Check ]]
 local function toggle_spell_check()
