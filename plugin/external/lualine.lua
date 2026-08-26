@@ -33,7 +33,7 @@ local custom_nord = {
   inactive = normalTheme,
 }
 
-local function curosr_pos()
+local function cursor_pos()
   return ' '
     .. vim.fn.line('.')
     .. '/'
@@ -41,6 +41,10 @@ local function curosr_pos()
     -- nf-fa-arrows_h
     .. '   '
     .. vim.fn.col('.')
+end
+
+local function line_only()
+  return ' ' .. vim.fn.line('.') .. '/' .. vim.api.nvim_buf_line_count(0)
 end
 
 local function truncateToFirstChar(min_width)
@@ -83,7 +87,7 @@ local dir = {
     },
     lualine_b = { { 'branch', icon = '' } },
     lualine_x = {},
-    lualine_y = { curosr_pos },
+    lualine_y = { cursor_pos },
     lualine_z = { 'mode' },
   },
   filetypes = { 'directory' },
@@ -110,12 +114,12 @@ require('lualine').setup({
     lualine_b = { 'diagnostics', 'diff', { 'branch', icon = '' } },
     lualine_c = { path },
     lualine_x = {},
-    lualine_y = { curosr_pos },
+    lualine_y = { cursor_pos },
     lualine_z = { { 'mode', fmt = truncateToFirstChar(101) } },
   },
   inactive_winbar = {
     lualine_c = { { 'filename', path = 1 } },
-    lualine_x = { curosr_pos },
+    lualine_x = { line_only },
   },
   sections = {},
   inactive_sections = {},
