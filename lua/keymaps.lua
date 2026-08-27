@@ -5,10 +5,15 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- j and k move by screen lines when no count prefix
 vim.keymap.set({ 'n', 'x' }, 'j', [[v:count == 0 ? 'gj' : 'j']], { expr = true })
 vim.keymap.set({ 'n', 'x' }, 'k', [[v:count == 0 ? 'gk' : 'k']], { expr = true })
+
 -- Better H and L
 vim.keymap.set({ 'n', 'o' }, 'L', '$', { desc = 'Go to last character of line' })
 vim.keymap.set('x', 'L', '$h', { desc = 'Go to last character of line (excluding EOL)' })
 vim.keymap.set({ 'n', 'x', 'o' }, 'H', '^', { desc = 'Go to first non-blank character of line' })
+
+-- Bash style keymaps (these do override native maps)
+vim.keymap.set('i', '<C-e>', '<Esc>A', { desc = 'Go to end of line' })
+vim.keymap.set('i', '<C-a>', '<Esc>I', { desc = 'Go to beginning of line' })
 
 -- Enter and Shift+Enter to get new line below and above without entering insert mode
 vim.keymap.set('n', '<CR>', 'o<Esc>')
