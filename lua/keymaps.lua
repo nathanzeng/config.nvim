@@ -54,8 +54,8 @@ vim.keymap.set({ 'n', 'x' }, '<leader>op', '"0p', { desc = 'Paste from yank regi
 vim.keymap.set('i', '<C-l>', '<Esc>gUiw`]a', { desc = 'Caps [l]ock the word before cursor' })
 
 -- Restart neovim
-vim.keymap.set('n', '<leader>r', '<cmd>restart<CR>', { desc = '[r]estart' })
-vim.keymap.set('n', '<leader>R', '<cmd>restart!<CR>', { desc = '[R]estart!' })
+vim.keymap.set('n', '<leader>rr', '<cmd>restart<CR>', { desc = '[r]estart' })
+vim.keymap.set('n', '<leader>rb', '<cmd>restart!<CR>', { desc = '[r]estart! [b]ang' })
 
 -- Window movement
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
