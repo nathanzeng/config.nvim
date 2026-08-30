@@ -73,7 +73,7 @@ vim.schedule(function()
     clues = {
       { mode = 'n', keys = '<Leader>l', desc = 'LSP' },
       { mode = 'n', keys = '<Leader>f', desc = '[f]ind' },
-      { mode = 'n', keys = '<Leader>r', desc = '[r]un debug' },
+      { mode = 'n', keys = '<Leader>d', desc = '[d]ebug' },
       miniclue.gen_clues.square_brackets(),
       miniclue.gen_clues.builtin_completion(),
       miniclue.gen_clues.g(),
@@ -110,7 +110,7 @@ require('mini.icons').setup({
 })
 MiniIcons.mock_nvim_web_devicons()
 
--- LSP and custom notifications
+-- LSP and other notifications
 require('mini.notify').setup({
   -- Bottom right corner
   window = {
@@ -122,6 +122,14 @@ require('mini.notify').setup({
     },
   },
 })
+
 -- Nightfox defaults to having floating windows darker
 vim.api.nvim_set_hl(0, 'MiniNotifyNormal', { link = 'Normal' })
 vim.notify = MiniNotify.make_notify()
+
+-- Custom command to show notifications
+vim.api.nvim_create_user_command('Notifications', function()
+  MiniNotify.show_history()
+end, {
+  desc = 'Show notifications',
+})
