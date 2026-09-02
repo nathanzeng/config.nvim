@@ -36,10 +36,14 @@ vim.api.nvim_create_autocmd('CmdwinEnter', {
 -- Alternate file (last edited file)
 vim.keymap.set('n', '<BS>', '<C-^>')
 
+-- Clear highlights on search when pressing <Esc> in normal mode
+-- See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
 -- Keep this up to date with core
 vim.keymap.set(
   'n',
-  '<Esc>',
+  '<C-c>',
   '<Cmd>nohlsearch<Bar>diffupdate'
     .. '<Bar>call nvim_buf_clear_namespace(0, nvim_create_namespace("nvim.multicursor"), 0, -1)'
     .. '<Bar>normal! <C-L><CR>',
