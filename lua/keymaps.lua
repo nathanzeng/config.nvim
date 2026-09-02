@@ -40,7 +40,7 @@ vim.keymap.set('n', '<BS>', '<C-^>')
 -- See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Keep this up to date with core
+-- TODO: would be nice if there was a plug mapping for this
 vim.keymap.set(
   'n',
   '<C-c>',
