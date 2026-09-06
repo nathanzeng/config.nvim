@@ -187,6 +187,21 @@ api.nvim_create_autocmd('FileType', {
       end
     end, { desc = 'Copy or move into current dir', buf = 0 })
 
+    -- Open entry in external program
+    vim.keymap.set('n', 'gx', function()
+      local filename = dir_name .. api.nvim_get_current_line()
+      local cmd, err = vim.ui.open(filename)
+
+      if cmd == nil then
+        error('UI open cmd not found')
+      end
+      cmd:wait()
+
+      if err ~= nil then
+        error(err)
+      end
+    end, { desc = 'Open entry in external program' })
+
     -- Open entry in vsplit
     vim.keymap.set('n', '<C-v>', function()
       vim.cmd.vsplit()
