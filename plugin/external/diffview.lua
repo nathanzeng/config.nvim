@@ -55,7 +55,6 @@ vim.schedule(function()
       end,
       { desc = 'prev entry' },
     },
-    -- TODO: remove after getting homerow mods?
     {
       'n',
       '<C-x>',
