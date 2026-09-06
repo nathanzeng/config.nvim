@@ -36,9 +36,6 @@ vim.schedule(function()
     },
   })
 
-  -- TODO: remove this once mini addresses
-  vim.keymap.set('n', 'Q', 'Q')
-
   local miniclue = require('mini.clue')
   miniclue.setup({
     window = {
