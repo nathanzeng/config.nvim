@@ -44,7 +44,7 @@ require('gitsigns').setup({
       gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
     end, { desc = '[r]eset hunk' })
 
-    -- normal mode
+    -- Normal mode
     map('n', '<leader>gs', gitsigns.stage_hunk, { desc = '[s]tage hunk' })
     map('n', '<leader>gr', gitsigns.reset_hunk, { desc = '[r]eset hunk' })
     map('n', '<leader>gS', gitsigns.stage_buffer, { desc = '[S]tage buffer' })
@@ -67,5 +67,8 @@ require('gitsigns').setup({
 
     -- this was like a worse version of the normal preview
     -- map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
+
+    -- Text object
+    map({ 'o', 'x' }, 'ih', gitsigns.select_hunk, { desc = '[i]nside [h]unk' })
   end,
 })
