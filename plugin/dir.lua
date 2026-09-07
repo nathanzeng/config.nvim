@@ -87,6 +87,15 @@ api.nvim_create_autocmd('FileType', {
         if obj.code ~= 0 then
           error('System error: ' .. (obj.stderr or 'nil'))
         end
+
+        -- TODO: files deleted from deleting a directory will still error
+        -- Delete corresponding buf to prevent orphaned buf and error message
+        for _, bufnr in ipairs(api.nvim_list_bufs()) do
+          local name = api.nvim_buf_get_name(bufnr)
+          if name == filename then
+            api.nvim_buf_delete(bufnr)
+          end
+        end
       end
 
       vim.cmd.normal({ args = { 'R' } })
