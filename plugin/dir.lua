@@ -209,7 +209,7 @@ api.nvim_create_autocmd('FileType', {
       if err ~= nil then
         error(err)
       end
-    end, { desc = 'Open entry in external program' })
+    end, { desc = 'Open entry in external program', buf = 0 })
 
     -- Open entry in vsplit
     vim.keymap.set('n', '<C-v>', function()
