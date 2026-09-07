@@ -9,6 +9,14 @@ vim.schedule(function()
   local shared_keymaps = {
     {
       'n',
+      'u',
+      function()
+        require('diffview.config').actions.toggle_stage_entry()
+      end,
+      { desc = '[u]nstage entry toggle' },
+    },
+    {
+      'n',
       'gf',
       function()
         require('diffview.config').actions.goto_file_edit_close()
